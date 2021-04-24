@@ -1,14 +1,23 @@
-import { ChakraProvider } from '@chakra-ui/react'
+import '@fontsource/permanent-marker/index.css';
+import '@fontsource/poppins/index.css';
 
-import theme from '../theme'
-import { AppProps } from 'next/app'
+import { Chakra } from "../Chakra"
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <ChakraProvider resetCSS theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
-  )
+import { AppProps } from 'next/app';
+
+// 
+
+import { Layout } from '../components/layout/Layout';
+import React from 'react';
+
+function MyApp({ Component, pageProps }: AppProps, { cookies }) {
+    return (
+    <Chakra cookies={cookies} >
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Chakra>
+  );
 }
 
-export default MyApp
+export default MyApp;
