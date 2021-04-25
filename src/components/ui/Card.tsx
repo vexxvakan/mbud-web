@@ -6,7 +6,7 @@ import {
   Heading,
   Text,
   Center,
-  Icon,
+  Icon
 } from '@chakra-ui/react';
 
 import Wave from 'react-wavify';
@@ -18,108 +18,120 @@ type CardProps = {
   desc: string;
   icon: any;
   variants: any;
+  children?: any;
 };
 
 const MotionFlex = motion(Flex);
 
-export default function Card({ name, desc, icon, variants }: CardProps) {
+export default function Card({ variants, children, name, desc, icon,  }: CardProps) {
   return (
     <MotionFlex
       variants={variants}
       whileHover={{ scale: 1.1 }}
       py={6}
-      px={{ base: 0, lg: 8 }}
-      w={{ base: '80', lg: 'md' }}
+      px={{ base: 4, lg: 8 }}
       alignItems='center'
-      justifyContent='center'
-      direction='column'
-      rounded='xl'>
+      justifyContent='start'
+      direction='column'>
       <Box
+        border={useColorModeValue(
+          '2px',
+          '0px'
+        )}
+        borderColor={useColorModeValue(
+          'orange.300',
+          'green.400'
+        )}
+        bgGradient={useColorModeValue(
+          'linear(to-tr, yellow.400,orange.200)',
+          'linear(to-tr, purple.800,orange.500)'
+        )}
         roundedTopLeft='48'
-        bg={useColorModeValue('waves.3', 'gray.800')}
-        w='full'
-        h={{ base: '48', lg: '48' }}
-        position='relative'
-        pb={2}>
-        <Circle
-          size='15px'
-          position='absolute'
-          top={2}
-          right={2}
-          bg={useColorModeValue('orange.400', '#333b63')}
-        />
-        <motion.div
-          animate={{
-            y: [0, -10, 0],
-          }}
-          transition={{
-            repeat: Infinity,
-            velocity: 0.3,
-            type: 'spring',
-            damping: 10,
-            stiffness: 10,
-            bounce: 1,
-          }}>
-          <Center
-            px={6}
-            py={{ base: 12, lg: 12 }}
-            fontSize={{ base: 150, lg: 150 }}
-            color={useColorModeValue('white', 'gray.500')}>
-            <Icon as={icon} />
-          </Center>
-        </motion.div>
-      </Box>
-      <Flex
-        bg={useColorModeValue('waves.3', 'gray.800')}
-        pos='relative'
-        p={0}
-        m={0}
-        h='10'
-        w='full'>
-        <Wave
-          fill={useColorModeValue('white', '#667F99')}
-          paused={false}
-          options={{
-            amplitude: 10,
-            speed: 0.2,
-            points: 6,
-          }}
-        />
-      </Flex>
-      <Box
-        textAlign='center'
-        w='full'
-        bg={useColorModeValue('white', '#667F99')}
-        px={6}
-        py={1}>
-        <Heading
-          bgGradient={useColorModeValue(
-            'linear(to-l, orange.500, gradients.4)',
-            'linear(to-l, blue.800, blue.600)'
-          )}
-          bgClip='text'
-          fontSize={{ base: '3xl', lg: '4xl' }}
-          fontWeight='semibold'
-          as='h3'
-          lineHeight='tight'
-          isTruncated>
-          {name}
-        </Heading>
-      </Box>
-      <Box
-        shadow='lg'
         roundedBottomRight='48'
-        w='full'
-        bg={useColorModeValue('white', '#667F99')}
-        py={3}
-        px={6}>
-        <Text
-          color={useColorModeValue('gray.800', 'white')}
-          fontSize='sm'
-          fontWeight={600}
-          lineHeight='tight'>
-          {desc}
-        </Text>
+        shadow="xl"
+        maxW="sm">
+        <Box
+          roundedTopLeft='48'
+          bg="transparent"
+          w='full'
+          h={{ base: '48', lg: '48' }}
+          position='relative'
+          pb={2}>
+          <Circle
+            size='15px'
+            position='absolute'
+            top={2}
+            right={2}
+            bg={useColorModeValue('offwhite.1', 'gray.900')}
+          />
+          <motion.div
+            animate={{
+              y: [0, -10, 0],
+            }}
+            transition={{
+              repeat: Infinity,
+              velocity: 0.3,
+              type: 'spring',
+              damping: 10,
+              stiffness: 10,
+              bounce: 1,
+            }}>
+            <Center
+              px={6}
+              py={{ base: 12, lg: 12 }}
+              fontSize={{ base: 150, lg: 150 }}
+              color={useColorModeValue('white', 'offwhite.1')}>
+              <Icon as={icon} />
+            </Center>
+          </motion.div>
+        </Box>
+        <Flex bg='transparent' pos='relative' p={0} m={0} h='10' w='full'>
+          <Wave
+            fill={useColorModeValue('white', '#283C3E')}
+            paused={false}
+            options={{
+              amplitude: 10,
+              speed: 0.2,
+              points: 6,
+            }}
+          />
+        </Flex>
+        <Box
+          textAlign='center'
+          w='full'
+          bg={useColorModeValue('white', 'gray.800')}
+          px={6}
+          py={1}>
+          <Heading
+            bgGradient={useColorModeValue(
+              'linear(to-r, yellow.400, orange.400)', 'linear(to-r, purple.400, orange.500)'
+            )}
+            bgClip='text'
+            fontSize={{ base: '3xl', lg: '4xl' }}
+            fontWeight='400'
+            as='h3'
+            lineHeight='tight'
+            isTruncated>
+            {name}
+          </Heading>
+        </Box>
+        <Box
+          shadow='lg'
+          roundedBottomRight='48'
+          w='full'
+          bg={useColorModeValue('white', 'gray.800')}
+          py={3}
+          px={6}>
+          <Text
+            pb={3}
+            color={useColorModeValue('gray.800', 'white')}
+            fontSize='md'
+            fontWeight={400}
+            lineHeight='tight'>
+            {desc}
+          </Text>
+          {children}
+        </Box>
       </Box>
     </MotionFlex>
   );

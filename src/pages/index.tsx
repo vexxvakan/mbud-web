@@ -8,13 +8,14 @@ import Wave from 'react-wavify';
 import Hero from '../components/Hero';
 import Features from '../components/Features';
 import Tokenomics from '../components/Tokenomics';
+import HowTo from '../components/HowTo';
 
 const Index = () => (
   <Fragment>
     <Hero />
-    <Box w="full" h="12">
+    <Box w='full' h='12' bg='transparent'>
       <Wave
-        fill={useColorModeValue('orange', '#333b63')}
+        fill={useColorModeValue('#EE763F', '#270033')}
         paused={false}
         options={{
           height: 20,
@@ -25,9 +26,9 @@ const Index = () => (
       />
     </Box>
     <Features />
-    <Box bg={useColorModeValue('orange', '#333b63')} w="full" h="10">
+    <Box bg={useColorModeValue('#EE763F', '#270033')} w='full' h='12'>
       <Wave
-        fill={useColorModeValue('white', '#001B33')}
+        fill={useColorModeValue('#FBF7F5', '#0A1D29')}
         paused={false}
         options={{
           height: 20,
@@ -38,6 +39,19 @@ const Index = () => (
       />
     </Box>
     <Tokenomics />
+    <Box bg={useColorModeValue('offwhite.1', 'blue.900')} w='full' h='12'>
+      <Wave
+        fill={useColorModeValue('#EE763F', '#270033')}
+        paused={false}
+        options={{
+          height: 20,
+          amplitude: 15,
+          speed: 0.16,
+          points: 6,
+        }}
+      />
+    </Box>
+    <HowTo />
   </Fragment>
 );
 

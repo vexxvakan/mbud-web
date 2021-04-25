@@ -1,6 +1,6 @@
 import { Icon, useColorModeValue } from '@chakra-ui/react';
 
-export default function BSCLightIcon() {
+export default function PancakeIcon() {
   return (
     <Icon
       w={6}

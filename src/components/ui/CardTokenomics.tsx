@@ -27,25 +27,27 @@ export default function Card({ name, desc, value, variants }: CardProps) {
       variants={variants}
       whileHover={{ scale: 1.1 }}
       py={6}
-      px={{ base: 0, lg: 8 }}
-      w={{ base: '80', lg: 'md' }}
+      px={{ base: 4, lg: 8 }}
       alignItems='center'
-      justifyContent='center'
-      direction='column'
-      rounded='xl'>
+      justifyContent='start'
+      direction='column'>
       <Box
-        border="2px"
+        border={useColorModeValue(
+          '2px',
+          '0px'
+        )}
         borderColor={useColorModeValue(
-          'waves.2',
-          'linear(to-l, gradients.3,gradients.4)'
+          'orange.300',
+          ''
         )}
         bgGradient={useColorModeValue(
-          'linear(to-tr, gradients.1,gradients.2)',
-          'linear(to-l, gradients.3,gradients.4)'
+          'linear(to-tr, yellow.400,orange.500)',
+          'linear(to-tr, purple.800,orange.500)'
         )}
         roundedTopLeft='48'
         roundedBottomRight='48'
-        shadow="xl">
+        shadow="xl"
+        maxW="lg">
         <Box
           roundedTopLeft='48'
           bg="transparent"
@@ -58,7 +60,7 @@ export default function Card({ name, desc, value, variants }: CardProps) {
             position='absolute'
             top={2}
             right={2}
-            bg={useColorModeValue('white', 'blue.900')}
+            bg={useColorModeValue('offwhite.1', 'gray.900')}
           />
           <motion.div
             animate={{
@@ -87,7 +89,7 @@ export default function Card({ name, desc, value, variants }: CardProps) {
         </Box>
         <Flex bg='transparent' pos='relative' p={0} m={0} h='10' w='full'>
           <Wave
-            fill={useColorModeValue('white', '#3D4C5C')}
+            fill={useColorModeValue('white', '#283C3E')}
             paused={false}
             options={{
               amplitude: 10,
@@ -99,16 +101,16 @@ export default function Card({ name, desc, value, variants }: CardProps) {
         <Box
           textAlign='center'
           w='full'
-          bg={useColorModeValue('white', 'gray.700')}
+          bg={useColorModeValue('white', 'gray.800')}
           px={6}
           py={1}>
           <Heading
             bgGradient={useColorModeValue(
-              'linear(to-b, gradients.1, gradients.2)', 'linear(to-t, gradients.5, gradients.6, gradients.7)'
+              'linear(to-r, yellow.400, orange.400)', 'linear(to-r, purple.400, orange.500)'
             )}
             bgClip='text'
             fontSize={{ base: '3xl', lg: '4xl' }}
-            fontWeight='semibold'
+            fontWeight='400'
             as='h3'
             lineHeight='tight'
             isTruncated>
@@ -119,13 +121,13 @@ export default function Card({ name, desc, value, variants }: CardProps) {
           shadow='lg'
           roundedBottomRight='48'
           w='full'
-          bg={useColorModeValue('white', 'gray.700')}
+          bg={useColorModeValue('white', 'gray.800')}
           py={3}
           px={6}>
           <Text
             color={useColorModeValue('gray.800', 'white')}
-            fontSize='sm'
-            fontWeight={600}
+            fontSize='md'
+            fontWeight={400}
             lineHeight='tight'>
             {desc}
           </Text>

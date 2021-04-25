@@ -2,14 +2,18 @@ import {
   Box,
   chakra,
   Container,
-  Link,
   Stack,
   Text,
+  Button,
   useColorModeValue,
   VisuallyHidden,
 } from '@chakra-ui/react';
 import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { ReactNode } from 'react';
+
+import { Link } from 'react-scroll';
+
+const ChakraLink = chakra(Link);
 
 import { Logo } from '../Logo';
 
@@ -57,16 +61,23 @@ export default function Footer() {
         spacing={4}
         justify={'center'}
         align={'center'}>
-        <Logo />
-        <Stack direction={'row'} spacing={6}>
-          <Link href={'#'}>Home</Link>
-          <Link href={'#'}>Features</Link>
-          <Link href={'#'}>Tokenomics</Link>
+        <ChakraLink href={'#'}>
+          <Logo />
+        </ChakraLink>
+        <Stack direction={'row'} spacing={2}>
+          <Button as={ChakraLink} colorScheme="orange" variant="ghost" to='features' smooth={true} duration={500}>
+            Features
+          </Button>
+          <Button as={ChakraLink} colorScheme="orange" variant="ghost" to='tokenomics' smooth={true} duration={500}>
+            Tokenomics
+          </Button>
+          <Button colorScheme="orange" variant="ghost" as={ChakraLink} to='howto' smooth={true} duration={500}>
+            HOW TO BUY
+          </Button>
         </Stack>
       </Container>
 
-      <Box
-        bg={useColorModeValue('white', 'gray.900')}>
+      <Box bg={useColorModeValue('white', 'gray.900')}>
         <Container
           as={Stack}
           maxW={'6xl'}

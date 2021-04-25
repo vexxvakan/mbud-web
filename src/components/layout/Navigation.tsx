@@ -52,7 +52,7 @@ export default function Navigation() {
           backdropFilter: 'saturate(180%) blur(5px)',
           backgroundColor: useColorModeValue(
             'rgba(255, 255, 255, 0.5)',
-            'rgba(103, 113, 137, 0.2)'
+            'rgba(40, 60, 62, 0.26)'
           ),
         }}>
         <Flex flex={{ base: 1, md: 'auto' }} ml={{ base: -2 }}>
@@ -109,6 +109,8 @@ const DesktopNav = () => {
           smooth={true}
           duration={500}
           key={navItem.label}
+          variant="ghost"
+          colorScheme="orange"
           color={useColorModeValue('orange.500', 'gray.200')}>
           {navItem.label}
         </Button>
@@ -208,8 +210,10 @@ const MobileNavItem = ({ label, href }: NavItem) => {
     <Stack spacing={4}>
       <Flex
         py={2}
-        as={Link}
-        href={href ?? '#'}
+        as={ChakraLink}
+        to={href}
+        smooth={true}
+        duration={1000}
         justify={'space-between'}
         align={'center'}
         _hover={{
@@ -238,5 +242,9 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: 'Tokenomics',
     href: 'tokenomics',
+  },
+  {
+    label: 'How To Buy',
+    href: 'howto',
   },
 ];

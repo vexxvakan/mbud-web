@@ -54,7 +54,7 @@ export default function Hero() {
       maxH='90vh'>
       <Box
         zIndex={-1}
-        bg={useColorModeValue('white', 'blue.900')}
+        bg={useColorModeValue('offwhite.1', 'gray.800')}
         pos='absolute'
         top={0}
         left={0}
@@ -237,7 +237,7 @@ export default function Hero() {
             Moon Buds{' '}
             <chakra.span
               fontSize={{ base: '1xl', lg: '2xl' }}
-              bgGradient='linear(to-tr, gradients.5, gradients.6)'
+              bgGradient={useColorModeValue('linear(to-tr, red.200, red.300)', 'linear(to-tr, red.500, red.200)')}
               bgClip='text'>
               ❤️
             </chakra.span>{' '}
@@ -246,7 +246,8 @@ export default function Hero() {
           <Text
             px={5}
             pb={3}
-            maxW={{ base: 'sm', lg: 'lg' }}
+            pt={1}
+            maxW={{ base: 'sm', lg: 'xl' }}
             color={useColorModeValue('gray.600', 'gray.200')}>
             Moon Bud is the latest deflationary currency on the Binance Smart
             Chain, and we aim to make a difference. Along with normal token
@@ -264,22 +265,18 @@ export default function Hero() {
           <MotionButton
             height='60px'
             rounded={'24'}
-            colorScheme='orange'
+            colorScheme='yellow'
             bgGradient={useColorModeValue(
-              'linear(to-l, orange.300, orange.500)',
-              'linear(to-l, orange.300, orange.500)'
+              'linear(to-tr, yellow.300, orange.500)',
+              'linear(to-tr, yellow.400, orange.300)'
             )}
-            color={useColorModeValue('gray.800', 'white')}
+            color={useColorModeValue('offwhite.1', 'offwhite.1')}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            _hover={{
-              bgGradient: 'linear(to-l, orange.300, orange.500)',
-            }}>
-            Buy{' '}
-            <chakra.span pl={1}>MoonBud</chakra.span>
+            whileTap={{ scale: 0.9 }}>
+            Buy MoonBud
           </MotionButton>
 
-          <Button variant={'outline'} colorScheme={'orange'} size={'sm'}>
+          <Button variant={'ghost'} colorScheme={'orange'} size={'sm'}>
             Learn more
           </Button>
 
