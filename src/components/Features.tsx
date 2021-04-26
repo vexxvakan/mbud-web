@@ -25,7 +25,7 @@ export default function Hero() {
   }, [controls, inView]);
 
   return (
-    <div id="features">
+    <div id='features'>
       <Flex
         justifyContent='center'
         alignItems='center'
@@ -43,38 +43,39 @@ export default function Hero() {
             direction='column'
             h='auto'>
             <MotionBox
-              mb={{base: 0, lg: 4}}
+              mb={{ base: 0, lg: 4 }}
               ref={ref}
               animate={controls}
               initial='hidden'
               transition={{ duration: 0.5 }}
               variants={{
-                visible: { x: 0, opacity: 1},
-                hidden: { x: -100, opacity: 0},
+                visible: { x: 0, opacity: 1 },
+                hidden: { x: -100, opacity: 0 },
               }}>
               <Heading
-                color={useColorModeValue('white', 'gray.200')}
+                color={useColorModeValue('white', 'offwhite.1')}
                 textAlign='center'
                 fontWeight={400}
-                fontSize={{ base: '6xl', lg: "120" }}
+                fontSize={{ base: '6xl', lg: '120' }}
                 lineHeight={'90%'}
                 maxW={{ base: 'sm', lg: '7xl' }}>
                 Features
               </Heading>
             </MotionBox>
             <MotionBox
-              mb={{base: 0, lg: 12}}
+              mb={{ base: 0, lg: 12 }}
               ref={ref}
               animate={controls}
               initial='hidden'
               transition={{ delay: 0.4, duration: 0.5 }}
               variants={{
-                visible: { x: 50, opacity: 1},
+                visible: { x: 50, opacity: 1 },
                 hidden: { x: 100, opacity: 0 },
               }}>
               <Heading
                 textAlign='center'
                 fontWeight={400}
+                color={useColorModeValue("gray.900","gray.500")}
                 mt={{ base: '1', lg: '0' }}
                 fontSize={{ base: '1xl', lg: '30' }}
                 lineHeight={'90%'}
@@ -84,7 +85,7 @@ export default function Hero() {
             </MotionBox>
           </Flex>
           <MotionFlex
-            mb={{base: 0, lg: 20}}
+            mb={{ base: 0, lg: 20 }}
             direction={{ base: 'column', lg: 'row' }}
             ref={ref}
             variants={{
@@ -101,32 +102,28 @@ export default function Hero() {
             transition={{ duration: 1 }}>
             <Card
               variants={{
-                hidden: { opacity: 0, y: 50, transition: {delay: 1}},
+                hidden: { opacity: 0, y: 50, transition: { delay: 1 } },
                 visible: { opacity: 1, y: 0 },
               }}
               name='Charity'
-              desc='2% of'
-              icon={GiHealthPotion}
-            ></Card>  
+              desc='You will be effectively supporting dogs in need all over the world. How exactly will be explained at a later point.'
+              icon={GiHealthPotion}></Card>
             <Card
               variants={{
                 hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0 },
               }}
-              name='Burn'
-              desc='1% of the fee is sent to a burn wallet where nobody can access the token! This means our token is deflationary in nature, the longer time goes on, the less supply of $MBUD that will exist. HODL!'
-              icon={GiFlamedLeaf}
-            ></Card> 
+              name='Deflationary'
+              desc='For every transaction on MoonBud, a small amount is burned forever. You can see the burned wallet below.'
+              icon={GiFlamedLeaf}></Card>
             <Card
               variants={{
                 hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0 },
               }}
               name='Reflection'
-              desc='2% of the fee is reflected back to all of the holders of the token. This means our token is auto-staking in nature. The more you hold the more you get reflected.
-            Earn more MBUD just by having MBUD in your wallet!'
-              icon={GiReceiveMoney}
-            ></Card> 
+              desc="In addition to the MBUD burned, there's another small amount being split up even and reflected to every Holder."
+              icon={GiReceiveMoney}></Card>
           </MotionFlex>
         </Flex>
       </Flex>

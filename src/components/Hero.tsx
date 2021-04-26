@@ -13,10 +13,13 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
-  useColorMode,
+  useColorMode
 } from '@chakra-ui/react';
 
 import { motion } from 'framer-motion';
+
+import { Link } from 'react-scroll'
+const ChakraLink = chakra(Link);
 
 import PlanetBlue from '../components/icons/PlanetBlue';
 
@@ -49,7 +52,7 @@ export default function Hero() {
 
   return (
     <Flex
-    id="start"
+      id='start'
       justifyContent='center'
       alignItems='center'
       px={4}
@@ -67,7 +70,7 @@ export default function Hero() {
         h='full'>
         <Box
           pos='absolute'
-          w="full"
+          w='full'
           h='full'
           top={{ base: '40vh', lg: '400' }}
           right={{ base: '20', lg: '100' }}>
@@ -205,7 +208,10 @@ export default function Hero() {
             initial={{ x: -300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}>
             <MotionHeading
-              bgGradient='linear(to-l, gradients.1, gradients.2)'
+              bgGradient={useColorModeValue(
+                'linear(to-r, yellow.400, orange.400)',
+                'linear(to-r, purple.400, orange.500)'
+              )}
               bgClip='text'
               textAlign='center'
               fontWeight={400}
@@ -231,7 +237,10 @@ export default function Hero() {
                 stiffness: 10,
                 bounce: 1,
               }}
-              bgGradient='linear(to-l, gradients.1, gradients.2)'
+              bgGradient={useColorModeValue(
+                'linear(to-r, yellow.400, orange.400)',
+                'linear(to-r, purple.400, orange.500)'
+              )}
               bgClip='text'
               textAlign='center'
               fontWeight={400}
@@ -239,15 +248,14 @@ export default function Hero() {
               fontSize={{ base: '1xl', lg: '4xl' }}
               lineHeight={'90%'}
               maxW={{ base: 'sm', lg: 'xl' }}>
-              LETS SAVE THE DOGGOS!
+              LETS SAVE THE DOGS!
             </MotionHeading>
           </MotionBox>
         </Flex>
         <Flex direction='column' alignItems='center'>
           <Heading
             as={'h6'}
-            bgGradient='linear(to-l, gradients.1, gradients.2)'
-            bgClip='text'
+            color={useColorModeValue('gray.800', 'offwhite.1)')}
             textAlign='center'
             fontWeight={400}
             fontSize={{ base: '2xl', lg: '4xl' }}
@@ -260,7 +268,7 @@ export default function Hero() {
               fontSize={{ base: '1xl', lg: '2xl' }}
               bgGradient={useColorModeValue(
                 'linear(to-tr, red.200, red.300)',
-                'linear(to-tr, red.500, red.200)'
+                'linear(to-tr, red.500, red.700)'
               )}
               bgClip='text'>
               ❤️
@@ -288,11 +296,11 @@ export default function Hero() {
           position={'relative'}>
           <MotionButton
             height='60px'
-            rounded={'24'}
-            colorScheme='yellow'
+            roundedTopLeft={'32'}
+            roundedBottomRight={'32'}
             bgGradient={useColorModeValue(
-              'linear(to-tr, yellow.300, orange.500)',
-              'linear(to-tr, yellow.400, orange.300)'
+              'linear(to-tr, yellow.400, orange.400)',
+              'linear(to-tr, purple.400, orange.500)'
             )}
             color={useColorModeValue('offwhite.1', 'offwhite.1')}
             whileHover={{ scale: 1.1 }}
@@ -300,7 +308,7 @@ export default function Hero() {
             Buy MoonBud
           </MotionButton>
 
-          <Button variant={'ghost'} colorScheme={'orange'} size={'sm'}>
+          <Button as={ChakraLink} to="features" smooth={true} duration="1000" variant={'ghost'} colorScheme={'orange'} size={'sm'}>
             Learn more
           </Button>
 

@@ -17,11 +17,12 @@ type CardProps = {
   desc: string;
   value: any;
   variants: any;
+  children?: any;
 };
 
 const MotionFlex = motion(Flex);
 
-export default function Card({ name, desc, value, variants }: CardProps) {
+export default function Card({ children, name, desc, value, variants }: CardProps) {
   return (
     <MotionFlex
       variants={variants}
@@ -47,7 +48,8 @@ export default function Card({ name, desc, value, variants }: CardProps) {
         roundedTopLeft='48'
         roundedBottomRight='48'
         shadow="xl"
-        maxW="lg">
+        maxW="lg"
+        >
         <Box
           roundedTopLeft='48'
           bg="transparent"
@@ -121,16 +123,20 @@ export default function Card({ name, desc, value, variants }: CardProps) {
           shadow='lg'
           roundedBottomRight='48'
           w='full'
+          h={{base: "320", lg: "52"}}
           bg={useColorModeValue('white', 'gray.800')}
           py={3}
           px={6}>
           <Text
+          mb={4}
+          textAlign='justify'
             color={useColorModeValue('gray.800', 'white')}
             fontSize='md'
             fontWeight={400}
             lineHeight='tight'>
             {desc}
           </Text>
+          {children}
         </Box>
       </Box>
     </MotionFlex>

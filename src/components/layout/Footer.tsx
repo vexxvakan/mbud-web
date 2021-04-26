@@ -21,7 +21,6 @@ import { FaDiscord, FaTelegramPlane, FaTwitter } from 'react-icons/fa';
 import { ReactNode } from 'react';
 
 import { Link } from 'react-scroll';
-
 const ChakraLink = chakra(Link);
 
 import { Logo } from '../Logo';
@@ -78,7 +77,7 @@ export default function Footer() {
           <ChakraLink to='start' smooth={true} duration='2000'>
             <Logo />
           </ChakraLink>
-          <Stack direction={'row'} spacing={2}>
+          <Stack direction={'row'} spacing={1}>
             <Button
               as={ChakraLink}
               colorScheme='orange'
@@ -177,7 +176,9 @@ export default function Footer() {
               href={'https://twitter.com/MoonBud_Coin'}>
               <FaTwitter />
             </SocialButton>
-            <SocialButton label={'Discord'} href={'#'}>
+            <SocialButton
+              label={'Discord'}
+              href={'https://discord.gg/d6GY682b3M'}>
               <FaDiscord />
             </SocialButton>
           </Stack>

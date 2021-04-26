@@ -1,6 +1,14 @@
 import React, { useEffect } from 'react';
 
-import { Box, Flex, Heading, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  Heading,
+  useColorModeValue,
+  Link as External,
+} from '@chakra-ui/react';
 
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -24,7 +32,7 @@ export default function Hero() {
   }, [controls, inView]);
 
   return (
-    <div id="tokenomics">
+    <div id='tokenomics'>
       <Flex
         justifyContent='center'
         alignItems='center'
@@ -42,36 +50,37 @@ export default function Hero() {
             direction='column'
             h='auto'>
             <MotionBox
-              mb={{base: 0, lg: 4}}
+              mb={{ base: 0, lg: 4 }}
               ref={ref}
               animate={controls}
               initial='hidden'
               transition={{ duration: 0.5 }}
               variants={{
-                visible: { x: 0, opacity: 1},
-                hidden: { x: -100, opacity: 0},
+                visible: { x: 0, opacity: 1 },
+                hidden: { x: -100, opacity: 0 },
               }}>
               <Heading
                 bgGradient={useColorModeValue(
-                  'linear(to-tr, yellow.400, orange.400)', 'linear(to-r, purple.400, orange.500)'
+                  'linear(to-tr, yellow.400, orange.400)',
+                  'linear(to-r, purple.400, orange.500)'
                 )}
-                bgClip="text"
+                bgClip='text'
                 textAlign='center'
                 fontWeight={400}
-                fontSize={{ base: '5xl', lg: "120" }}
+                fontSize={{ base: '5xl', lg: '120' }}
                 lineHeight={'90%'}
                 maxW={{ base: 'sm', lg: '7xl' }}>
                 Tokenomics
               </Heading>
             </MotionBox>
             <MotionBox
-              mb={{base: 0, lg: 12}}
+              mb={{ base: 0, lg: 12 }}
               ref={ref}
               animate={controls}
               initial='hidden'
               transition={{ delay: 0.4, duration: 0.5 }}
               variants={{
-                visible: { x: 30, opacity: 1},
+                visible: { x: 30, opacity: 1 },
                 hidden: { x: 100, opacity: 0 },
               }}>
               <Heading
@@ -86,7 +95,7 @@ export default function Hero() {
             </MotionBox>
           </Flex>
           <MotionFlex
-            mb={{base: 0, lg: 20}}
+            mb={{ base: 0, lg: 20 }}
             direction={{ base: 'column', lg: 'row' }}
             ref={ref}
             variants={{
@@ -103,32 +112,90 @@ export default function Hero() {
             transition={{ duration: 1 }}>
             <Card
               variants={{
-                hidden: { opacity: 0, y: 50, transition: {delay: 1}},
+                hidden: { opacity: 0, y: 50, transition: { delay: 1 } },
                 visible: { opacity: 1, y: 0 },
               }}
               name='Towards Charity'
-              desc='2% of the fee will be sent to our charity wallet. This will be gradually sold over the course of the month to not cause price impact on MBUD. BNB generated from this will only leave when the charity chosen by YOU has accepted our donation and sent us a confirmation!'
-              value="2%"
-            />
+              desc='2% of the fee will be sent to our charity wallet. This will be gradually sold over the course of a month to not cause price impact on MBUD. BNB generated from this will only leave when the charity chosen by YOU has accepted our donation and sent us a confirmation!'
+              value='2%'>
+              {' '}
+              <Center w='full'>
+                <Button
+                  roundedBottomRight='32'
+                  roundedTopLeft='32'
+                  rounded='5'
+                  as={External}
+                  size='xl'
+                  w='full'
+                  p={2}
+                  textAlign='center'
+                  fontWeight={900}
+                  color={'white'}
+                  colorScheme='orange'
+                  fontSize={'1xl'}
+                  textDecoration={'none'}
+                  bgGradient={useColorModeValue(
+                    'linear(to-tr, yellow.400, orange.400)',
+                    'linear(to-r, purple.400, orange.500)'
+                  )}
+                  href={
+                    'https://bscscan.com/token/0xbe8183612f145986a41ad8e8fcfefed1c2f9deba?a=0xcb326b9f02660a4b52e8863cd40a3806af009e20'
+                  }
+                  _hover={{
+                    textDecoration: 'none',
+                  }}>
+                  Watch Charity Wallet
+                </Button>
+              </Center>
+            </Card>
             <Card
               variants={{
                 hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0 },
               }}
               name='BURNED'
-              desc='1% of the fee is sent to a burn wallet where nobody can access the token! This means our token is deflationary in nature, the longer time goes on, the less supply of $MBUD that will exist. HODL!'
-              value="1%"
-            />
+              desc='An additional 1% of the fee is sent to a burn wallet where nobody can access the token! This means our token is deflationary in nature, the longer time goes on, the less supply of $MBUD that will exist!'
+              value='1%'>
+              <Center w='full'>
+                <Button
+                  mt={4}
+                  roundedBottomRight='32'
+                  roundedTopLeft='32'
+                  rounded='5'
+                  as={External}
+                  size='xl'
+                  w='full'
+                  p={2}
+                  textAlign='center'
+                  fontWeight={900}
+                  color={'white'}
+                  fontSize={'1xl'}
+                  textDecoration={'none'}
+                  bgGradient={useColorModeValue(
+                    'linear(to-tr, yellow.400, orange.400)',
+                    'linear(to-r, purple.400, orange.500)'
+                  )}
+                  href={
+                    'https://bscscan.com/token/0xbe8183612f145986a41ad8e8fcfefed1c2f9deba?a=0x000000000000000000000000000000000000dead'
+                  }
+                  _hover={{
+                    textDecoration: 'none',
+                  }}>
+                  Watch Burn Wallet
+                </Button>
+              </Center>
+            </Card>
             <Card
               variants={{
                 hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0 },
               }}
               name='REFLECTED'
-              desc='2% of the fee is reflected back to all of the holders of the token. This means our token is auto-staking in nature. The more you hold the more you get reflected.
+              desc='Last but not least another 2% of the fee is reflected back to all of the holders of the token. This means our token is auto-staking in nature. The more you hold the more you get reflected.
             Earn more MBUD just by having MBUD in your wallet!'
-            value="2%"
-            />
+              value='2%'>
+              <Heading textAlign='center'>HODL!</Heading>
+            </Card>
           </MotionFlex>
         </Flex>
       </Flex>

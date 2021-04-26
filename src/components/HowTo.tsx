@@ -53,7 +53,6 @@ export default function HowTo() {
             direction='column'
             h='auto'>
             <MotionBox
-              mb={{ base: 0, lg: 4 }}
               ref={ref}
               animate={controls}
               initial='hidden'
@@ -63,13 +62,13 @@ export default function HowTo() {
                 hidden: { x: -200, opacity: 0 },
               }}>
               <Heading
-                color={useColorModeValue('white', 'gray.200')}
+                color={useColorModeValue('white', 'offwhite.1')}
                 textAlign='center'
                 fontWeight={400}
                 fontSize={{ base: '6xl', lg: '120' }}
                 lineHeight={'90%'}
                 maxW={{ base: 'sm', lg: '7xl' }}>
-                How to
+                How to buy
               </Heading>
             </MotionBox>
             <MotionBox
@@ -85,11 +84,12 @@ export default function HowTo() {
               <Heading
                 textAlign='center'
                 fontWeight={400}
+                color={useColorModeValue('gray.900', 'gray.500')}
                 mt={{ base: '1', lg: '0' }}
                 fontSize={{ base: '2xl', lg: '30' }}
                 lineHeight={'90%'}
                 maxW={{ base: 'sm', lg: 'xl' }}>
-                help the doggos
+                and help the dogs
               </Heading>
             </MotionBox>
           </Flex>
@@ -124,13 +124,12 @@ export default function HowTo() {
                 visible: { opacity: 1, y: 0 },
               }}
               name='Use PancakeSwap'
-              desc='Navigate to PancakeSwap by clicking the button below!'
+              desc="Navigate to PancakeSwap by clicking the button below! Don't forget to set the slippage to 12%"
               icon={PancakeLogo}>
-              {' '}
-              <Center w="full">
+              <Center w='full'>
                 <Button
                   size='xl'
-                  w="full"
+                  w='full'
                   p={2}
                   textAlign='center'
                   fontWeight={900}

@@ -22,13 +22,13 @@ import {
   PopoverCloseButton,
   Tooltip,
   Heading,
+  Link as External,
 } from '@chakra-ui/react';
 
 import { Link } from 'react-scroll';
 
 const ChakraLink = chakra(Link);
 
-import { IoDocumentText } from 'react-icons/io5';
 import { FaRedditAlien, FaTelegramPlane } from 'react-icons/fa';
 import { AiOutlineDashboard } from 'react-icons/ai';
 import { GoFlame } from 'react-icons/go';
@@ -104,11 +104,13 @@ export default function Navigation() {
             roundedBottomRight='12'
             roundedTopLeft='12'
             hasArrow
+            border='2px solid black'
             label={
               <Flex direction='column' maxW='32'>
                 <Heading fontSize={'20'}>Coming Soon</Heading>
                 <Text pt='2'>
                   A toolkit full of features to make your bud life easier.
+                  Arriving soon.
                 </Text>
               </Flex>
             }
@@ -162,8 +164,8 @@ export default function Navigation() {
                 </Heading>
               </PopoverHeader>
               <PopoverBody>
-                You're entire toolkit of everything MoonBud will be available
-                soon!
+                A toolkit full of features to make your bud life easier.
+                Arriving soon.
               </PopoverBody>
             </PopoverContent>
           </Popover>
@@ -201,11 +203,16 @@ const DesktopNav = () => {
         </Button>
       ))}
       <Button
+        as={External}
         display={{ base: 'none', lg: 'inline-flex' }}
-        leftIcon={<IoDocumentText />}
-        variant='solid'
+        leftIcon={<GoFlame />}
+        variant='ghost'
+        _hover={{
+          textDecoration: 'none',
+        }}
+        href='https://solidity.finance/audits/Moonbud/'
         aria-label='Check our Audit!'
-        colorScheme={useColorModeValue('yellow', 'orange')}>
+        colorScheme={useColorModeValue('red', 'red')}>
         Audit
       </Button>
     </Stack>
@@ -234,8 +241,8 @@ const MobileNav = () => {
         <Stack spacing={4}>
           <Flex
             py={2}
-            as={ChakraLink}
             href='https://solidity.finance/audits/Moonbud/'
+            as={External}
             justify={'start'}
             align={'center'}
             _hover={{
@@ -299,7 +306,7 @@ const MobileNav = () => {
             <Center>Buy MoonBuds</Center>
           </Button>
           <IconButton
-            variant={useColorModeValue('solid', 'outline')}
+            variant='ghost'
             size='lg'
             colorScheme='orange'
             aria-label='Visit /r/moonbudcoin'
@@ -307,7 +314,7 @@ const MobileNav = () => {
             icon={<FaRedditAlien />}
           />
           <IconButton
-            variant={useColorModeValue('solid', 'outline')}
+            variant='ghost'
             colorScheme='telegram'
             size='lg'
             aria-label='Visit @moonbudcoin on Twitter'
@@ -315,9 +322,9 @@ const MobileNav = () => {
             icon={<FaTelegramPlane />}
           />
           <IconButton
-            variant={useColorModeValue('solid', 'outline')}
+            variant='ghost'
             colorScheme='gray'
-            bg={useColorModeValue('offwhite.1', 'gray.800')}
+            bg='transparent'
             size='lg'
             aria-label='Find on BSCScan.com!'
             fontSize='20px'
