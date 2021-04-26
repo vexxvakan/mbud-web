@@ -102,7 +102,7 @@ export default function HowTo() {
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 1,
+                  staggerChildren: 0.75,
                 },
               },
             }}

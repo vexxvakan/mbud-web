@@ -144,8 +144,7 @@ export default function Card({
       <Box alignSelf='center'>
         <motion.div
           animate={{
-            scale: [1, 2, 2, 1, 1],
-            rotate: [0, 0, 270, 270, 0],
+            opacity: [0, 0, 1, 1 , 1],
           }}>
           {useBreakpointValue({
             base: (

@@ -94,7 +94,7 @@ export default function Hero() {
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 1,
+                  staggerChildren: 0.5,
                 },
               },
             }}

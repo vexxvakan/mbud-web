@@ -13,11 +13,12 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
+  useColorMode,
 } from '@chakra-ui/react';
 
 import { motion } from 'framer-motion';
 
-// import { Logo } from './LogoText';
+import PlanetBlue from '../components/icons/PlanetBlue';
 
 const Arrow = createIcon({
   displayName: 'Arrow',
@@ -44,8 +45,11 @@ const spring = {
 };
 
 export default function Hero() {
+  const { colorMode } = useColorMode();
+
   return (
     <Flex
+    id="start"
       justifyContent='center'
       alignItems='center'
       px={4}
@@ -53,13 +57,27 @@ export default function Hero() {
       mx='auto'
       maxH='90vh'>
       <Box
-        zIndex={-1}
-        bg={useColorModeValue('offwhite.1', 'gray.800')}
+        zIndex={-2}
+        bg={useColorModeValue('offwhite.1', 'blue.900')}
         pos='absolute'
         top={0}
         left={0}
         w='full'
+        overflow='hidden'
         h='full'>
+        <Box
+          pos='absolute'
+          w="full"
+          h='full'
+          top={{ base: '40vh', lg: '400' }}
+          right={{ base: '20', lg: '100' }}>
+          <motion.div
+            animate={{ x: [0, 5, 0], y: [0, 5, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}>
+            {colorMode === 'dark' ? <PlanetBlue /> : ''}
+          </motion.div>
+        </Box>
+
         <Particles
           id='tsparticles'
           options={{
@@ -176,14 +194,17 @@ export default function Hero() {
         textAlign={'justify'}
         spacing={{ base: 8, md: 14 }}
         py={{ base: 6, md: 36 }}>
-        <Flex direction="column" alignItems="center" mt={{ base: '40', lg: '0' }} w='full'>
+        <Flex
+          direction='column'
+          alignItems='center'
+          mt={{ base: '40', lg: '0' }}
+          w='full'>
           <MotionBox
             textAlign='center'
             transition={spring}
             initial={{ x: -300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}>
             <MotionHeading
-  
               bgGradient='linear(to-l, gradients.1, gradients.2)'
               bgClip='text'
               textAlign='center'
@@ -199,17 +220,17 @@ export default function Hero() {
             initial={{ x: 500, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}>
             <MotionHeading
-                        animate={{
-                          y: [0, 5, 0],
-                        }}
-                        transition={{
-                          repeat: Infinity,
-                          velocity: 0.1,
-                          type: 'spring',
-                          damping: 10,
-                          stiffness: 10,
-                          bounce: 1,
-                        }}
+              animate={{
+                y: [0, 5, 0],
+              }}
+              transition={{
+                repeat: Infinity,
+                velocity: 0.1,
+                type: 'spring',
+                damping: 10,
+                stiffness: 10,
+                bounce: 1,
+              }}
               bgGradient='linear(to-l, gradients.1, gradients.2)'
               bgClip='text'
               textAlign='center'
@@ -237,7 +258,10 @@ export default function Hero() {
             Moon Buds{' '}
             <chakra.span
               fontSize={{ base: '1xl', lg: '2xl' }}
-              bgGradient={useColorModeValue('linear(to-tr, red.200, red.300)', 'linear(to-tr, red.500, red.200)')}
+              bgGradient={useColorModeValue(
+                'linear(to-tr, red.200, red.300)',
+                'linear(to-tr, red.500, red.200)'
+              )}
               bgClip='text'>
               ❤️
             </chakra.span>{' '}
