@@ -121,6 +121,8 @@ const theme = extendTheme({
     body: 'Poppins',
   },
   breakpoints,
+  initialColorMode: "dark",
+  useSystemColorMode: false,
 });
 
 export default theme;

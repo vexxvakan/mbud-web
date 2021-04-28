@@ -1,14 +1,17 @@
 import React from 'react';
 import { Fragment } from 'react';
 
+import dynamic from 'next/dynamic';
+
 import { Box, useColorModeValue } from '@chakra-ui/react';
 
 import Wave from 'react-wavify';
 
 import Hero from '../components/Hero';
-import Features from '../components/Features';
-import Tokenomics from '../components/Tokenomics';
-import HowTo from '../components/HowTo';
+
+const Features = dynamic(() => import('../components/Features'), { loading: () => <div /> });
+const Tokenomics = dynamic(() => import('../components/Tokenomics'), { loading: () => <div /> });
+const HowTo = dynamic(() => import('../components/HowTo'), { loading: () => <div /> });
 
 const Index = () => (
   <Fragment>

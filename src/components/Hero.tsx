@@ -13,12 +13,12 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
-  useColorMode
+  useColorMode,
 } from '@chakra-ui/react';
 
 import { motion } from 'framer-motion';
 
-import { Link } from 'react-scroll'
+import { Link } from 'react-scroll';
 const ChakraLink = chakra(Link);
 
 import PlanetBlue from '../components/icons/PlanetBlue';
@@ -35,10 +35,6 @@ const Arrow = createIcon({
     />
   ),
 });
-
-const MotionButton = motion(Button);
-const MotionHeading = motion(Heading);
-const MotionBox = motion(Box);
 
 const spring = {
   type: 'spring',
@@ -57,11 +53,9 @@ export default function Hero() {
       alignItems='center'
       px={4}
       pt={{ base: 0, md: 32 }}
-      mx='auto'
-      maxH='90vh'>
+      mx='auto'>
       <Box
         zIndex={-2}
-        bg={useColorModeValue('offwhite.1', 'blue.900')}
         pos='absolute'
         top={0}
         left={0}
@@ -75,7 +69,7 @@ export default function Hero() {
           top={{ base: '40vh', lg: '400' }}
           right={{ base: '20', lg: '100' }}>
           <motion.div
-            animate={{ x: [0, 5, 0], y: [0, 5, 0] }}
+            animate={{ x: [0, 3, 0], y: [0, 3, 0] }}
             transition={{ duration: 3, repeat: Infinity }}>
             {colorMode === 'dark' ? <PlanetBlue /> : ''}
           </motion.div>
@@ -83,7 +77,10 @@ export default function Hero() {
 
         <Particles
           id='tsparticles'
+          width='100vw'
+          height='100vh'
           options={{
+            autoPlay: true,
             particles: {
               number: {
                 value: 90,
@@ -125,13 +122,6 @@ export default function Hero() {
                   sync: false,
                 },
               },
-              line_linked: {
-                enable: false,
-                distance: 150,
-                color: '#ffffff',
-                opacity: 0.4,
-                width: 1,
-              },
               move: {
                 enable: true,
                 speed: 0.2,
@@ -140,48 +130,23 @@ export default function Hero() {
                 straight: false,
                 out_mode: 'out',
                 bounce: false,
-                attract: {
-                  enable: false,
-                  rotateX: 600,
-                  rotateY: 1200,
-                },
               },
             },
             interactivity: {
-              detect_on: 'canvas',
+              detect_on: 'window',
               events: {
                 onhover: {
-                  enable: false,
-                  mode: 'repulse',
-                },
-                onclick: {
-                  enable: false,
-                  mode: 'push',
+                  enable: true,
+                  mode: 'bubble',
                 },
                 resize: true,
               },
               modes: {
-                grab: {
-                  distance: 400,
-                  line_linked: {
-                    opacity: 1,
-                  },
-                },
                 bubble: {
-                  distance: 400,
-                  size: 40,
+                  distance: 100,
+                  size: 5,
                   duration: 2,
-                  opacity: 8,
-                },
-                repulse: {
-                  distance: 200,
-                  duration: 0.4,
-                },
-                push: {
-                  particles_nb: 4,
-                },
-                remove: {
-                  particles_nb: 2,
+                  opacity: 1,
                 },
               },
             },
@@ -191,23 +156,22 @@ export default function Hero() {
       </Box>
       <Stack
         w='full'
-        overflow={'hidden'}
+        overflow='hidden'
         as={Box}
         alignItems='center'
         textAlign={'justify'}
         spacing={{ base: 8, md: 14 }}
-        py={{ base: 6, md: 36 }}>
+        py={{ base: 0, md: 36 }}>
         <Flex
           direction='column'
           alignItems='center'
           mt={{ base: '40', lg: '0' }}
           w='full'>
-          <MotionBox
-            textAlign='center'
+          <motion.div
             transition={spring}
             initial={{ x: -300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}>
-            <MotionHeading
+            <Heading
               bgGradient={useColorModeValue(
                 'linear(to-r, yellow.400, orange.400)',
                 'linear(to-r, purple.400, orange.500)'
@@ -219,13 +183,13 @@ export default function Hero() {
               lineHeight={'90%'}
               maxW={{ base: '256', lg: '7xl' }}>
               HELLO FRENS
-            </MotionHeading>
-          </MotionBox>
-          <MotionBox
+            </Heading>
+          </motion.div>
+          <motion.div
             transition={spring}
             initial={{ x: 500, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}>
-            <MotionHeading
+            <motion.div
               animate={{
                 y: [0, 5, 0],
               }}
@@ -236,21 +200,23 @@ export default function Hero() {
                 damping: 10,
                 stiffness: 10,
                 bounce: 1,
-              }}
-              bgGradient={useColorModeValue(
-                'linear(to-r, yellow.400, orange.400)',
-                'linear(to-r, purple.400, orange.500)'
-              )}
-              bgClip='text'
-              textAlign='center'
-              fontWeight={400}
-              mt={{ base: '1', lg: '4' }}
-              fontSize={{ base: '1xl', lg: '4xl' }}
-              lineHeight={'90%'}
-              maxW={{ base: 'sm', lg: 'xl' }}>
-              LETS SAVE THE DOGS!
-            </MotionHeading>
-          </MotionBox>
+              }}>
+              <Heading
+                bgGradient={useColorModeValue(
+                  'linear(to-r, yellow.400, orange.400)',
+                  'linear(to-r, purple.400, orange.500)'
+                )}
+                bgClip='text'
+                textAlign='center'
+                fontWeight={400}
+                mt={{ base: '1', lg: '4' }}
+                fontSize={{ base: '1xl', lg: '4xl' }}
+                lineHeight={'90%'}
+                maxW={{ base: 'md', lg: 'xl' }}>
+                LETS SAVE THE DOGS!
+              </Heading>
+            </motion.div>
+          </motion.div>
         </Flex>
         <Flex direction='column' alignItems='center'>
           <Heading
@@ -281,36 +247,38 @@ export default function Hero() {
             pt={1}
             maxW={{ base: 'sm', lg: 'xl' }}
             color={useColorModeValue('gray.600', 'gray.200')}>
-            Moon Bud is the latest deflationary currency on the Binance Smart
-            Chain, and we aim to make a difference. Along with normal token
-            burning and reflection, a portion of every $MBUD transaction is
-            directed towards shelters and charities chosen by our community.
-            Join us on our mission to the moon, and to a better planet.
+            MoonBud ($MBUD) is a deflationary and reflective token on the
+            Binance Smart Chain. The purpose of this coin is to harness the
+            power of cryptocurrency to benefit both holders and dogs around the
+            world. At the time of writing, we are on track to donate over
+            $100,000 to charitable causes just days after creation. This paper
+            outlines the vision and future of the MBud token. Please join us on
+            our goal to create a profitable and ethical currency.
           </Text>
         </Flex>
-
         <Stack
           direction={'column'}
           spacing={3}
           align={'center'}
           position={'relative'}>
-          <MotionButton
-            height='60px'
-            roundedTopLeft={'32'}
-            roundedBottomRight={'32'}
-            bgGradient={useColorModeValue(
-              'linear(to-tr, yellow.400, orange.400)',
-              'linear(to-tr, purple.400, orange.500)'
-            )}
-            color={useColorModeValue('offwhite.1', 'offwhite.1')}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}>
-            Buy MoonBud
-          </MotionButton>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <Button
+              height='60px'
+              colorScheme={useColorModeValue('yellow', 'offwhite')}
+              roundedTopLeft={'32'}
+              roundedBottomRight={'32'}
+              color={useColorModeValue('offwhite.1', 'offwhite.1')}>
+              Buy MoonBud
+            </Button>
+          </motion.div>
 
-          <Button as={ChakraLink} to="features" smooth={true} duration="1000" variant={'ghost'} colorScheme={'orange'} size={'sm'}>
+          <ChakraLink
+            to='features'
+            smooth={true}
+            duration='1000'
+            size={'sm'}>
             Learn more
-          </Button>
+          </ChakraLink>
 
           <Box>
             <Icon
@@ -339,7 +307,3 @@ export default function Hero() {
     </Flex>
   );
 }
-
-Hero.defaultProps = {
-  title: 'Title',
-};

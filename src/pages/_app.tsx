@@ -5,15 +5,12 @@ import { Chakra } from '../Chakra';
 
 import { AppProps } from 'next/app';
 
-//
-
 import { Layout } from '../components/layout/Layout';
-import React from 'react';
 import Head from 'next/head';
 
-function MyApp({ Component, pageProps }: AppProps, { cookies }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Chakra cookies={cookies}>
+    <Chakra cookies={pageProps.cookies}>
       <Head>
         <title>Home | MoonBud</title>
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
@@ -25,4 +22,5 @@ function MyApp({ Component, pageProps }: AppProps, { cookies }) {
   );
 }
 
+export { getServerSideProps } from "../Chakra"
 export default MyApp;

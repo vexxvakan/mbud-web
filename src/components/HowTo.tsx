@@ -124,12 +124,14 @@ export default function HowTo() {
                 visible: { opacity: 1, y: 0 },
               }}
               name='Use PancakeSwap'
-              desc="Navigate to PancakeSwap by clicking the button below! Don't forget to set the slippage to 12%"
+              desc="Navigate to PancakeSwap by clicking the button below! Don't forget to set the slippage to 6%"
               icon={PancakeLogo}>
               <Center w='full'>
                 <Button
+                  roundedBottomRight='36'
+                  roundedTopLeft='36'
                   size='xl'
-                  w='full'
+                  w={48}
                   p={2}
                   textAlign='center'
                   fontWeight={900}
@@ -143,7 +145,7 @@ export default function HowTo() {
                     bgGradient: 'linear(to-r, orange.400,yellow.400)',
                     textDecoration: 'none',
                   }}>
-                  <Center>Buy MoonBuds</Center>
+                  Buy MoonBuds
                 </Button>
               </Center>
             </Card>

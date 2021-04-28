@@ -326,7 +326,7 @@ const MobileNav = () => {
             colorScheme='gray'
             bg='transparent'
             size='lg'
-            aria-label='Find on BSCScan.com!'
+            aria-label='Find us on BscScan.com!'
             fontSize='20px'
             icon={<BSCLightIcon />}
           />

@@ -16,6 +16,7 @@ import {
   ModalCloseButton,
   useDisclosure,
   Heading,
+  StackDivider,
 } from '@chakra-ui/react';
 import { FaDiscord, FaTelegramPlane, FaTwitter } from 'react-icons/fa';
 import { ReactNode } from 'react';
@@ -63,97 +64,73 @@ export default function Footer() {
     <Box
       w='full'
       color={useColorModeValue('gray.700', 'gray.200')}
-      bg={useColorModeValue('white', 'gray.800')}
-      boxShadow={'lg'}>
-      <Container
-        w='full'
-        as={Stack}
-        py={4}
-        spacing={4}
-        justify={'center'}
-        align={'center'}
-        direction={'column'}>
-        <Stack align='center'>
-          <ChakraLink to='start' smooth={true} duration='2000'>
-            <Logo />
+      bg={useColorModeValue('#FBF7F5', 'gray.800')}>
+      <Stack align='center'>
+        <Link to='start' smooth={true} duration='2000'>
+          <Logo />
+        </Link>
+        <Stack
+          divider={
+            <StackDivider borderColor='gray.200' orientation='horizontal' />
+          }
+          direction={'row'}
+          spacing={2}>
+          <ChakraLink to='features' duration={500} smooth={true}>
+            Features
           </ChakraLink>
-          <Stack direction={'row'} spacing={1}>
-            <Button
-              as={ChakraLink}
-              colorScheme='orange'
-              variant='ghost'
-              to='features'
-              smooth={true}
-              duration={500}>
-              Features
-            </Button>
-            <Button
-              as={ChakraLink}
-              colorScheme='orange'
-              variant='ghost'
-              to='tokenomics'
-              smooth={true}
-              duration={500}>
-              Tokenomics
-            </Button>
-            <Button
-              colorScheme='orange'
-              variant='ghost'
-              as={ChakraLink}
-              to='howto'
-              smooth={true}
-              duration={500}>
-              HOW TO BUY
-            </Button>
-          </Stack>
-          <Stack>
-            <Button colorScheme='orange' variant='solid' onClick={onOpen}>
-              HRI DISCLAIMER
-            </Button>
-            <Modal
-              preserveScrollBarGap
-              motionPreset='slideInBottom'
-              isCentered
-              isOpen={isOpen}
-              onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent mx={2}>
-                <ModalHeader w='full'>
-                  <Heading
-                    bgGradient={useColorModeValue(
-                      'linear(to-tr, yellow.400,orange.500)',
-                      'linear(to-tr, purple.400,orange.500)'
-                    )}
-                    fontWeight={400}
-                    bgClip='text'>
-                    HIGH RISK INVESTMENT
-                  </Heading>
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <Text align='justify'>
-                    The content shared on this website is for information
-                    purpose only and, thus, should not be considered as
-                    financial advice.Trading/Investing is risky and you should
-                    never invest more than you can afford to lose.
-                    Cryptocurrencies are risky. Always seek professional advice
-                    before making any investment. You alone assume the sole
-                    responsibility of evaluating the merits and risks associated
-                    with the use of any information or other content on this
-                    website before making any decisions based on such
-                    information or other content.
-                  </Text>
-                </ModalBody>
-                <ModalFooter justify='center'>
-                  <Button colorScheme='orange' mr={3} onClick={onClose}>
-                    I understand.
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
-          </Stack>
+          <ChakraLink to='tokenomics' smooth={true} duration={500}>
+            Tokenomics
+          </ChakraLink>
+          <ChakraLink to='howto' smooth={true} duration={500}>
+            How to buy
+          </ChakraLink>
         </Stack>
-      </Container>
+        <Stack>
+          <Button variant='ghost' colorScheme='orange' onClick={onOpen}>
+            High Risk Investment
+          </Button>
+          <Modal
+            preserveScrollBarGap
+            motionPreset='slideInBottom'
+            isCentered
+            isOpen={isOpen}
+            onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent mx={2}>
+              <ModalHeader w='full'>
+                <Heading
+                  bgGradient={useColorModeValue(
+                    'linear(to-tr, yellow.400,orange.500)',
+                    'linear(to-tr, purple.400,orange.500)'
+                  )}
+                  fontWeight={400}
+                  bgClip='text'>
+                  HIGH RISK INVESTMENT
+                </Heading>
+              </ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <Text align='justify'>
+                  The content shared on this website is for information purpose
+                  only and, thus, should not be considered as financial
+                  advice.Trading/Investing is risky and you should never invest
+                  more than you can afford to lose. Cryptocurrencies are risky.
+                  Always seek professional advice before making any investment.
+                  You alone assume the sole responsibility of evaluating the
+                  merits and risks associated with the use of any information or
+                  other content on this website before making any decisions
+                  based on such information or other content.
+                </Text>
+              </ModalBody>
+              <ModalFooter justify='center'>
+                <Button colorScheme='orange' mr={3} onClick={onClose}>
+                  I understand.
+                </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
+        </Stack>
+      </Stack>
 
       <Box bg={useColorModeValue('white', 'gray.900')}>
         <Container

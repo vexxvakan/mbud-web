@@ -112,11 +112,24 @@ export default function Hero() {
             transition={{ duration: 1 }}>
             <Card
               variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              name='REFLECTED'
+              desc='2% are redistributed to all of the token’s current holders, proportional to the portion of the
+              total supply that they currently own.'
+              value='2%'>
+              <Heading textAlign='center'>HODL!</Heading>
+            </Card>
+            <Card
+              variants={{
                 hidden: { opacity: 0, y: 50, transition: { delay: 1 } },
                 visible: { opacity: 1, y: 0 },
               }}
               name='Towards Charity'
-              desc='2% of the fee will be sent to our charity wallet. This will be gradually sold over the course of a month to not cause price impact on MBUD. BNB generated from this will only leave when the charity chosen by YOU has accepted our donation and sent us a confirmation!'
+              desc='Another 2% are sent to the charity wallet, which is the source of the donations this token
+              aims to perform. It is controlled by the team and used exclusively for charity purposes, as
+              its address shows.'
               value='2%'>
               {' '}
               <Center w='full'>
@@ -154,7 +167,8 @@ export default function Hero() {
                 visible: { opacity: 1, y: 0 },
               }}
               name='BURNED'
-              desc='An additional 1% of the fee is sent to a burn wallet where nobody can access the token! This means our token is deflationary in nature, the longer time goes on, the less supply of $MBUD that will exist!'
+              desc='Finally, 1% of the transaction is sent to the burn wallet. As a result, the total supply decreases, which contributes to the token’s deflationary nature and increases its value over
+              time.'
               value='1%'>
               <Center w='full'>
                 <Button
@@ -184,17 +198,6 @@ export default function Hero() {
                   Watch Burn Wallet
                 </Button>
               </Center>
-            </Card>
-            <Card
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              name='REFLECTED'
-              desc='Last but not least another 2% of the fee is reflected back to all of the holders of the token. This means our token is auto-staking in nature. The more you hold the more you get reflected.
-            Earn more MBUD just by having MBUD in your wallet!'
-              value='2%'>
-              <Heading textAlign='center'>HODL!</Heading>
             </Card>
           </MotionFlex>
         </Flex>

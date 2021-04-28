@@ -1,10 +1,12 @@
 import { Fragment } from 'react';
 
+import dynamic from 'next/dynamic';
 import Navigation from './Navigation';
-import Footer from './Footer';
 import React from 'react';
 import { Box, useColorModeValue } from '@chakra-ui/react';
-import Wave from 'react-wavify';
+
+const Footer = dynamic(() => import('./Footer'), { loading: () => <div /> });
+const Wave = dynamic(() => import('react-wavify'), { loading: () => <div /> });
 
 type LayoutProps = {
   children: any;
