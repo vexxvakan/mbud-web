@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import {
-  Box,
   Button,
   Center,
   Flex,
@@ -15,7 +14,6 @@ import { useInView } from 'react-intersection-observer';
 
 import Card from './ui/CardTokenomics';
 
-const MotionBox = motion(Box);
 const MotionFlex = motion(Flex);
 
 export default function Hero() {
@@ -49,8 +47,7 @@ export default function Hero() {
             align='center'
             direction='column'
             h='auto'>
-            <MotionBox
-              mb={{ base: 0, lg: 4 }}
+            <motion.div
               ref={ref}
               animate={controls}
               initial='hidden'
@@ -60,6 +57,7 @@ export default function Hero() {
                 hidden: { x: -100, opacity: 0 },
               }}>
               <Heading
+                mt={{base: 0, lg: 4}}
                 bgGradient={useColorModeValue(
                   'linear(to-tr, yellow.400, orange.400)',
                   'linear(to-r, purple.400, orange.500)'
@@ -72,9 +70,8 @@ export default function Hero() {
                 maxW={{ base: 'sm', lg: '7xl' }}>
                 Tokenomics
               </Heading>
-            </MotionBox>
-            <MotionBox
-              mb={{ base: 0, lg: 12 }}
+            </motion.div>
+            <motion.div
               ref={ref}
               animate={controls}
               initial='hidden'
@@ -86,13 +83,14 @@ export default function Hero() {
               <Heading
                 textAlign='center'
                 fontWeight={400}
-                mt={{ base: '1', lg: '0' }}
+                mt={{ base: 1, lg: 0 }}
+                mb={{base: 0, lg: 6}}
                 fontSize={{ base: '2xl', lg: '30' }}
                 lineHeight={'90%'}
                 maxW={{ base: 'sm', lg: 'xl' }}>
                 Where did my 5% go?
               </Heading>
-            </MotionBox>
+            </motion.div>
           </Flex>
           <MotionFlex
             mb={{ base: 0, lg: 20 }}
@@ -109,10 +107,10 @@ export default function Hero() {
             }}
             initial='hidden'
             animate={controls}
-            transition={{ duration: 1 }}>
+            transition={{ duration: 0.1 }}>
             <Card
               variants={{
-                hidden: { opacity: 0, y: 50 },
+                hidden: { opacity: 0, y: 50, transition: { delay: 1 } },
                 visible: { opacity: 1, y: 0 },
               }}
               name='REFLECTED'
@@ -123,7 +121,7 @@ export default function Hero() {
             </Card>
             <Card
               variants={{
-                hidden: { opacity: 0, y: 50, transition: { delay: 1 } },
+                hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0 },
               }}
               name='Towards Charity'

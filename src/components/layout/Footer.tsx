@@ -24,7 +24,7 @@ import { ReactNode } from 'react';
 import { Link } from 'react-scroll';
 const ChakraLink = chakra(Link);
 
-import { Logo } from '../Logo';
+import { Logo } from '../icons/Logo';
 
 const SocialButton = ({
   children,

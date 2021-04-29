@@ -35,8 +35,8 @@ import { GoFlame } from 'react-icons/go';
 import BSCLightIcon from '../icons/BscLight';
 import PancakeIcon from '../icons/PancakeIcon';
 
-import { Logo } from '../Logo';
-import { DarkModeSwitch } from '../ui/DarkModeSwitch';
+import { Logo } from '../icons/Logo';
+import { DarkModeSwitch } from '../ui/SettingsMenu';
 
 import React, { Fragment } from 'react';
 
@@ -70,17 +70,11 @@ export default function Navigation() {
             'rgba(40, 60, 62, 0.26)'
           ),
         }}>
-        <Flex flex={{ base: 1, md: '0' }} ml={{ base: -2 }}>
+        <Flex align="center" justify="start" flex={{ base: 1, md: '0' }} ml={{ base: -2 }}>
           <IconButton
             display={{ base: 'flex', md: 'none' }}
             onClick={onToggle}
-            icon={
-              isOpen ? (
-                <Hamburger toggled={isOpen} />
-              ) : (
-                <Hamburger toggled={isOpen} />
-              )
-            }
+            icon={<Hamburger hideOutline={true} rounded label="Show menu" toggled={isOpen} />}
             variant={'ghost'}
             aria-label={'Toggle Navigation'}
           />
@@ -165,7 +159,7 @@ export default function Navigation() {
               </PopoverHeader>
               <PopoverBody>
                 A toolkit full of features to make your bud life easier.
-                Arriving soon.
+                Soon.
               </PopoverBody>
             </PopoverContent>
           </Popover>

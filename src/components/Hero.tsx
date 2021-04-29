@@ -44,6 +44,7 @@ const spring = {
 };
 
 export default function Hero() {
+  
   const { colorMode } = useColorMode();
 
   return (
@@ -161,7 +162,7 @@ export default function Hero() {
         alignItems='center'
         textAlign={'justify'}
         spacing={{ base: 8, md: 14 }}
-        py={{ base: 0, md: 36 }}>
+        py={{ base: 0, md: 20 }}>
         <Flex
           direction='column'
           alignItems='center'
@@ -264,11 +265,11 @@ export default function Hero() {
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <Button
               height='60px'
-              colorScheme={useColorModeValue('yellow', 'offwhite')}
+              colorScheme={useColorModeValue('yellow', 'purple')}
               roundedTopLeft={'32'}
               roundedBottomRight={'32'}
               color={useColorModeValue('offwhite.1', 'offwhite.1')}>
-              Buy MoonBud
+              Buy <span><Heading pl="2" fontSize={{base: "md", lg: "lg"}}>MoonBud</Heading></span>
             </Button>
           </motion.div>
 

@@ -126,8 +126,10 @@ export default function HowTo() {
               name='Use PancakeSwap'
               desc="Navigate to PancakeSwap by clicking the button below! Don't forget to set the slippage to 6%"
               icon={PancakeLogo}>
-              <Center w='full'>
+              <Center w='full'
+              >
                 <Button
+                maxH="20"
                   roundedBottomRight='36'
                   roundedTopLeft='36'
                   size='xl'
@@ -139,7 +141,7 @@ export default function HowTo() {
                   fontSize={'1xl'}
                   textDecoration={'none'}
                   bgGradient='linear(to-r, orange.500,yellow.500)'
-                  href={'#'}
+                  href='https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0xbe8183612f145986a41ad8e8fcfefed1c2f9deba'
                   leftIcon={<PancakeIcon />}
                   _hover={{
                     bgGradient: 'linear(to-r, orange.400,yellow.400)',
@@ -147,7 +149,7 @@ export default function HowTo() {
                   }}>
                   Buy MoonBuds
                 </Button>
-              </Center>
+                </Center>
             </Card>
             <Card
               variants={{
