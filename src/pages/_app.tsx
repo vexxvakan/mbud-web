@@ -1,6 +1,3 @@
-import '@fontsource/permanent-marker/index.css';
-import '@fontsource/poppins/index.css';
-
 import { Chakra } from '../Chakra';
 
 import { AppProps } from 'next/app';
