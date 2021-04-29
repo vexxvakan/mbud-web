@@ -576,7 +576,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:latest":
+"@chakra-ui/react@npm:^1.6.0":
   version: 1.6.0
   resolution: "@chakra-ui/react@npm:1.6.0"
   dependencies:
@@ -727,7 +727,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/system@npm:1.6.4, @chakra-ui/system@npm:latest":
+"@chakra-ui/system@npm:1.6.4, @chakra-ui/system@npm:^1.6.4":
   version: 1.6.4
   resolution: "@chakra-ui/system@npm:1.6.4"
   dependencies:
@@ -798,7 +798,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/theme-tools@npm:1.1.6, @chakra-ui/theme-tools@npm:latest":
+"@chakra-ui/theme-tools@npm:1.1.6, @chakra-ui/theme-tools@npm:^1.1.6":
   version: 1.1.6
   resolution: "@chakra-ui/theme-tools@npm:1.1.6"
   dependencies:
@@ -899,7 +899,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/babel-plugin@npm:^11.1.2":
+"@emotion/babel-plugin@npm:^11.3.0":
   version: 11.3.0
   resolution: "@emotion/babel-plugin@npm:11.3.0"
   dependencies:
@@ -973,7 +973,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/react@npm:11.1.5":
+"@emotion/react@npm:^11.1.5":
   version: 11.1.5
   resolution: "@emotion/react@npm:11.1.5"
   dependencies:
@@ -1016,14 +1016,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:11.1.5":
-  version: 11.1.5
-  resolution: "@emotion/styled@npm:11.1.5"
+"@emotion/styled@npm:^11.1.5":
+  version: 11.3.0
+  resolution: "@emotion/styled@npm:11.3.0"
   dependencies:
-    "@babel/runtime": ^7.7.2
-    "@emotion/babel-plugin": ^11.1.2
+    "@babel/runtime": ^7.13.10
+    "@emotion/babel-plugin": ^11.3.0
     "@emotion/is-prop-valid": ^1.1.0
-    "@emotion/serialize": ^1.0.0
+    "@emotion/serialize": ^1.0.2
     "@emotion/utils": ^1.0.0
   peerDependencies:
     "@babel/core": ^7.0.0
@@ -1034,7 +1034,7 @@ __metadata:
       optional: true
     "@types/react":
       optional: true
-  checksum: 40c3ae4521c23ca2397d90a5d49f4329f70829a760220000d7ebd613fab8c2dc88dc78d38b4393cb5156f707ce9a6e418f0a574855418709742f11ce2fbef7b1
+  checksum: 3eb9b591d061ab90b155a747c75ebda919ef78afa1f4b7b790561b324b9d25de776131a685040afdd63bb0cd070a66bd91af7eb891f057cc7aad77de0914568e
   languageName: node
   linkType: hard
 
@@ -1059,14 +1059,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/permanent-marker@npm:latest":
+"@fontsource/permanent-marker@npm:^4.2.2":
   version: 4.2.2
   resolution: "@fontsource/permanent-marker@npm:4.2.2"
   checksum: 752329a37daa1f972bd33e48417f7dd7c75522200f8ea787fd027eb8ef0e24a604ffea912d37bc618947de0ebc072aeaefc12842863eab2ec0a8be395e645035
   languageName: node
   linkType: hard
 
-"@fontsource/poppins@npm:latest":
+"@fontsource/poppins@npm:^4.2.2":
   version: 4.2.2
   resolution: "@fontsource/poppins@npm:4.2.2"
   checksum: 4c0340fe8821211c48df08c3801f4b27b3c9d3937526554c91df4e21673ac3c30c7cc60ab0bf6e42011ef86a343c5f1575243547601412f31f8b9718dd75be1e
@@ -3347,13 +3347,13 @@ fsevents@~2.3.1:
   version: 0.0.0-use.local
   resolution: "moonbud-rework@workspace:."
   dependencies:
-    "@chakra-ui/react": latest
-    "@chakra-ui/system": latest
-    "@chakra-ui/theme-tools": latest
-    "@emotion/react": 11.1.5
-    "@emotion/styled": 11.1.5
-    "@fontsource/permanent-marker": latest
-    "@fontsource/poppins": latest
+    "@chakra-ui/react": ^1.6.0
+    "@chakra-ui/system": ^1.6.4
+    "@chakra-ui/theme-tools": ^1.1.6
+    "@emotion/react": ^11.1.5
+    "@emotion/styled": ^11.1.5
+    "@fontsource/permanent-marker": ^4.2.2
+    "@fontsource/poppins": ^4.2.2
     "@next/bundle-analyzer": ^10.1.3
     "@types/node": ^14.6.0
     "@types/prop-types": ^15.7.3
