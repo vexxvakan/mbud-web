@@ -4,8 +4,8 @@ import {
   localStorageManager,
 } from '@chakra-ui/react';
 
-import '@fontsource/permanent-marker/index.css';
-import '@fontsource/poppins/index.css';
+import "@fontsource/permanent-marker";
+import "@fontsource/poppins"
 
 import theme from './theme';
 
