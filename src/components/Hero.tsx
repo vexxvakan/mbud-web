@@ -74,18 +74,6 @@ export default function Hero() {
             {colorMode === 'dark' ? <PlanetBlue /> : ''}
           </motion.div>
         </Box>
-        <Box
-          pos='absolute'
-          w='full'
-          h='full'
-          top={{ base: '10vh', lg: '100' }}
-          right={{ base: '60', lg: '200' }}>
-          <motion.div
-            animate={{ x: [0, 3, 0], y: [0, 3, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}>
-            {colorMode === 'dark' ? '' : ''}
-          </motion.div>
-        </Box>
 
         <Particles
           id='tsparticles'
