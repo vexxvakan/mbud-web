@@ -44,17 +44,7 @@ export const DarkModeSwitch = () => {
         isOpen={isOpen}
         onClose={onClose}>
         <ModalOverlay />
-        <ModalContent
-                    roundedBottomRight={"34"}
-          css={{
-            backdropFilter: 'saturate(180%) blur(3px)',
-            backgroundColor: useColorModeValue(
-              'rgba(255, 255, 255, 0.5)',
-              'rgba(103, 113, 137, 0.5)'
-            ),
-          }}
-          mx={2}
-          roundedTopLeft='48'>
+        <ModalContent roundedBottomRight={'34'} mx={2} roundedTopLeft='48'>
           <ModalHeader
             roundedTopLeft='48'
             css={{

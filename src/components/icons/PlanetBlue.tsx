@@ -1,12 +1,11 @@
-import { Icon, useColorModeValue } from '@chakra-ui/react';
+import { Icon } from '@chakra-ui/react';
 
 export default function PlanetBlue() {
   return (
     <Icon
     w="2xl"
     h="4xl"
-      viewBox='0 0 841.89 595.28'
-      color={useColorModeValue('offwhite.1', 'offwhite.1')}>
+      viewBox='0 0 841.89 595.28'>
       <circle cx='297.71' cy='297.71' r='260.13' fill='#1c4a79' />
       <path
         fill='#213f65'

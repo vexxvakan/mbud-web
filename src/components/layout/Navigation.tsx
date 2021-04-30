@@ -314,22 +314,31 @@ const MobileNav = () => {
             <Center>Buy MoonBuds</Center>
           </Button>
           <IconButton
+            as={External}
+            isExternal
             variant='ghost'
             size='lg'
             colorScheme='orange'
-            aria-label='Visit /r/moonbudcoin'
+            aria-label='Visit /r/moonbud'
             fontSize='20px'
+            href="https://www.reddit.com/r/MoonBud/"
             icon={<FaRedditAlien />}
           />
           <IconButton
+            as={External}
+            href="https://t.me/moonbudofficial"
+            isExternal
             variant='ghost'
             colorScheme='telegram'
             size='lg'
-            aria-label='Visit @moonbudcoin on Twitter'
+            aria-label='Join us on Telegram'
             fontSize='20px'
             icon={<FaTelegramPlane />}
           />
           <IconButton
+            as={External}
+            href="https://bscscan.com/token/0xbe8183612f145986a41ad8e8fcfefed1c2f9deba"
+            isExternal
             variant='ghost'
             colorScheme='gray'
             bg='transparent'

@@ -113,7 +113,7 @@ export default function Hero() {
                 hidden: { opacity: 0, y: 50, transition: { delay: 1 } },
                 visible: { opacity: 1, y: 0 },
               }}
-              name='Charity'
+              name='Charitable'
               useIcon={true}
               desc='Every transaction sends MBUD tokens to our public charity wallet. MoonBud holders vote on which charitable organization 100% of these funds will be delivered to.'
               icon={GiHealthPotion}>

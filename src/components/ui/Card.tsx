@@ -44,7 +44,7 @@ export default function Card({
         justifyContent='start'
         direction='column'>
         <Box
-          minH={{base: '200', lg: 'lg'}}
+          minH={{base: '100', lg: 'lg'}}
           border={border === true ? '2px' : '0px'}
           borderColor='orange.300'
           bgGradient={useColorModeValue(
@@ -126,6 +126,7 @@ export default function Card({
             py={3}
             px={6}>
             <Text
+              textAlign="justify"
               pb={3}
               color={useColorModeValue('gray.800', 'white')}
               fontSize={16}

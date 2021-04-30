@@ -96,8 +96,16 @@ export default function Footer() {
             isOpen={isOpen}
             onClose={onClose}>
             <ModalOverlay />
-            <ModalContent mx={2}>
-              <ModalHeader w='full'>
+            <ModalContent mx={2} roundedBottomRight={'34'} roundedTopLeft='48'>
+              <ModalHeader
+                css={{
+                  backgroundColor: useColorModeValue(
+                    'rgba(255, 255, 255, 0.5)',
+                    'rgba(103, 113, 137, 0.5)'
+                  ),
+                }}
+                roundedTopLeft='48'
+                w='full'>
                 <Heading
                   bgGradient={useColorModeValue(
                     'linear(to-tr, yellow.400,orange.500)',
@@ -109,12 +117,16 @@ export default function Footer() {
                 </Heading>
               </ModalHeader>
               <ModalCloseButton />
-              <ModalBody>
+              <ModalBody
+                css={{
+                  backgroundColor: useColorModeValue(
+                    'rgba(255, 255, 255, 0.8)',
+                    'rgba(103, 113, 137, 0.8)'
+                  ),
+                }}>
                 <Text align='justify'>
-                  The content shared on this website is for information purpose
-                  only and, thus, should not be considered as financial
-                  advice.Trading/Investing is risky and you should never invest
-                  more than you can afford to lose. Cryptocurrencies are risky.
+                  The content shared on this website is for informational
+                  purposes only and should not be considered financial advice.
                   Always seek professional advice before making any investment.
                   You alone assume the sole responsibility of evaluating the
                   merits and risks associated with the use of any information or
@@ -122,8 +134,15 @@ export default function Footer() {
                   based on such information or other content.
                 </Text>
               </ModalBody>
-              <ModalFooter justify='center'>
-                <Button colorScheme='orange' mr={3} onClick={onClose}>
+              <ModalFooter
+                opacity={0.7}
+                bgGradient={useColorModeValue(
+                  'linear(to-tr, yellow.400,orange.500)',
+                  'linear(to-tr, purple.400,orange.500)'
+                )}
+                roundedBottomRight='34'
+                justify='center'>
+                <Button colorScheme='red' mr={3} onClick={onClose}>
                   I understand.
                 </Button>
               </ModalFooter>
