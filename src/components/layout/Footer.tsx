@@ -82,7 +82,7 @@ export default function Footer() {
             Tokenomics
           </ChakraLink>
           <ChakraLink to='howto' smooth={true} duration={500}>
-            How to buy
+            How To Buy
           </ChakraLink>
         </Stack>
         <Stack>

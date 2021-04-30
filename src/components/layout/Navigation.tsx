@@ -32,8 +32,8 @@ const ChakraLink = chakra(Link);
 import { FaRedditAlien, FaTelegramPlane } from 'react-icons/fa';
 import { AiOutlineDashboard } from 'react-icons/ai';
 import { GoFlame } from 'react-icons/go';
-import BSCLightIcon from '../icons/BscLight';
-import PancakeIcon from '../icons/PancakeIcon';
+import BSCLightIcon from '../icons/BSCIcon';
+import PancakeIcon from '../icons/PancakeLogo';
 
 import { Logo } from '../icons/Logo';
 import { DarkModeSwitch } from '../ui/SettingsMenu';
@@ -70,15 +70,28 @@ export default function Navigation() {
             'rgba(40, 60, 62, 0.26)'
           ),
         }}>
-        <Flex align="center" justify="start" flex={{ base: 1, md: '0' }} ml={{ base: -2 }}>
+        <Flex
+          align='center'
+          justify='start'
+          flex={{ base: 1, md: '0' }}
+          ml={{ base: -2 }}>
           <IconButton
             display={{ base: 'flex', md: 'none' }}
             onClick={onToggle}
-            icon={<Hamburger hideOutline={true} rounded label="Show menu" toggled={isOpen} />}
+            icon={
+              <Hamburger
+                hideOutline={true}
+                rounded
+                label='Show menu'
+                toggled={isOpen}
+              />
+            }
             variant={'ghost'}
             aria-label={'Toggle Navigation'}
           />
-          <Logo />
+          <Link to='start' smooth={true} duration='2000'>
+            <Logo />
+          </Link>
         </Flex>
         <Flex
           flex={{ base: 0, md: 'none' }}
@@ -158,8 +171,7 @@ export default function Navigation() {
                 </Heading>
               </PopoverHeader>
               <PopoverBody>
-                A toolkit full of features to make your bud life easier.
-                Soon.
+                A toolkit full of features to make your bud life easier. Soon.
               </PopoverBody>
             </PopoverContent>
           </Popover>
@@ -198,6 +210,7 @@ const DesktopNav = () => {
       ))}
       <Button
         as={External}
+        isExternal
         display={{ base: 'none', lg: 'inline-flex' }}
         leftIcon={<GoFlame />}
         variant='ghost'
@@ -237,6 +250,7 @@ const MobileNav = () => {
             py={2}
             href='https://solidity.finance/audits/Moonbud/'
             as={External}
+            isExternal
             justify={'start'}
             align={'center'}
             _hover={{

@@ -92,7 +92,7 @@ export const DarkModeSwitch = () => {
                   aria-label='Toggle Dark Mode'
                   defaultChecked={useColorModeValue(true, false)}
                 />
-                <Text>Dark Mode</Text>
+                <Text>Toggle Theme</Text>
               </HStack>
             </VStack>
           </ModalBody>

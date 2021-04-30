@@ -66,11 +66,11 @@ export const Logo = () => {
               d='M100 370c-77 14-41 54-29 60 0 0 16 10 29-2 14-12 50-68 0-58z'
             />
             <path fill='none' strokeWidth='19.8' d='M252 464s31 18 30 36' />
-            <circle cx='160.2' cy='405.6' r='4' fill='#864f9a' />
-            <circle cx='177.4' cy='396.1' r='2.5' fill='#864f9a' />
-            <circle cx='155.9' cy='390.9' r='2.7' fill='#864f9a' />
-            <circle cx='139.2' cy='412.6' r='1.9' fill='#864f9a' />
-            <circle cx='189.5' cy='413.6' r='3.1' fill='#864f9a' />
+            <circle cx='160.2' cy='405.6' r='4' fill='currentcolor' />
+            <circle cx='177.4' cy='396.1' r='2.5' fill='currentcolor' />
+            <circle cx='155.9' cy='390.9' r='2.7' fill='currentcolor' />
+            <circle cx='139.2' cy='412.6' r='1.9' fill='currentcolor' />
+            <circle cx='189.5' cy='413.6' r='3.1' fill='currentcolor' />
           </g>
           <path
             fill='none'

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Particles from 'react-tsparticles';
 
 import {
@@ -14,6 +12,7 @@ import {
   useColorModeValue,
   createIcon,
   useColorMode,
+  Link as External
 } from '@chakra-ui/react';
 
 import { motion } from 'framer-motion';
@@ -44,7 +43,6 @@ const spring = {
 };
 
 export default function Hero() {
-  
   const { colorMode } = useColorMode();
 
   return (
@@ -56,6 +54,7 @@ export default function Hero() {
       pt={{ base: 0, md: 32 }}
       mx='auto'>
       <Box
+        bg={useColorModeValue('offwhite.1', 'blue.900')}
         zIndex={-2}
         pos='absolute'
         top={0}
@@ -230,7 +229,7 @@ export default function Hero() {
             maxW={{ base: '400', lg: '7xl' }}
             pt={4}
             pb={2}>
-            Moon Buds{' '}
+            MoonBuds{' '}
             <chakra.span
               fontSize={{ base: '1xl', lg: '2xl' }}
               bgGradient={useColorModeValue(
@@ -248,13 +247,9 @@ export default function Hero() {
             pt={1}
             maxW={{ base: 'sm', lg: 'xl' }}
             color={useColorModeValue('gray.600', 'gray.200')}>
-            MoonBud ($MBUD) is a deflationary and reflective token on the
-            Binance Smart Chain. The purpose of this coin is to harness the
-            power of cryptocurrency to benefit both holders and dogs around the
-            world. At the time of writing, we are on track to donate over
-            $100,000 to charitable causes just days after creation. This paper
-            outlines the vision and future of the MBud token. Please join us on
-            our goal to create a profitable and ethical currency.
+            Moon Bud ($MBUD) is a charity-centered token on the Binance Smart
+            Chain. Our purpose is to harness the power of cryptocurrency to
+            benefit both MBUD holders and dogs in need around the world.
           </Text>
         </Flex>
         <Stack
@@ -264,21 +259,36 @@ export default function Hero() {
           position={'relative'}>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <Button
+              as={External}
+              isExternal
               height='60px'
               colorScheme={useColorModeValue('yellow', 'purple')}
               roundedTopLeft={'32'}
               roundedBottomRight={'32'}
-              color={useColorModeValue('offwhite.1', 'offwhite.1')}>
-              Buy <span><Heading pl="2" fontSize={{base: "md", lg: "lg"}}>MoonBud</Heading></span>
+              color={useColorModeValue('offwhite.1', 'offwhite.1')}
+              href='https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0xbe8183612f145986a41ad8e8fcfefed1c2f9deba'
+              _hover={{
+                textDecoration: 'none',
+              }}>
+              Buy{' '}
+              <span>
+                <Heading pl='2' fontSize={{ base: 'md', lg: 'lg' }}>
+                  MoonBud
+                </Heading>
+              </span>
             </Button>
           </motion.div>
 
           <ChakraLink
+            _hover={{
+              cursor: 'pointer',
+            }}
             to='features'
+            fontWeight='600'
             smooth={true}
             duration='1000'
-            size={'sm'}>
-            Learn more
+            size={'md'}>
+            Learn More
           </ChakraLink>
 
           <Box>

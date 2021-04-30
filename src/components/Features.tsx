@@ -1,6 +1,14 @@
 import React, { useEffect } from 'react';
 
-import { Box, Flex, Heading, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Heading,
+  useColorModeValue,
+  Button,
+  Center,
+  Link as External,
+} from '@chakra-ui/react';
 
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -69,13 +77,13 @@ export default function Hero() {
               initial='hidden'
               transition={{ delay: 0.4, duration: 0.5 }}
               variants={{
-                visible: { x: 50, opacity: 1 },
+                visible: { x: 0, opacity: 1 },
                 hidden: { x: 100, opacity: 0 },
               }}>
               <Heading
                 textAlign='center'
                 fontWeight={400}
-                color={useColorModeValue("gray.900","gray.500")}
+                color={useColorModeValue('gray.900', 'gray.500')}
                 mt={{ base: '1', lg: '0' }}
                 fontSize={{ base: '1xl', lg: '30' }}
                 lineHeight={'90%'}
@@ -94,36 +102,100 @@ export default function Hero() {
                 opacity: 1,
                 transition: {
                   staggerChildren: 0.5,
+                  duration: 1,
                 },
               },
             }}
             initial='hidden'
-            animate={controls}
-            transition={{ duration: 1 }}>
+            animate={controls}>
             <Card
               variants={{
                 hidden: { opacity: 0, y: 50, transition: { delay: 1 } },
                 visible: { opacity: 1, y: 0 },
               }}
               name='Charity'
-              desc='You will be effectively supporting dogs in need all over the world. How exactly will be explained at a later point.'
-              icon={GiHealthPotion}></Card>
+              useIcon={true}
+              desc='Every transaction sends MBUD tokens to our public charity wallet. MoonBud holders vote on which charitable organization 100% of these funds will be delivered to.'
+              icon={GiHealthPotion}>
+              {' '}
+              <Center w='full'>
+                <Button
+                  roundedBottomRight='32'
+                  roundedTopLeft='32'
+                  rounded='5'
+                  as={External}
+                  size='lg'
+                  w='full'
+                  h="10"
+                  px={2}
+                  textAlign='center'
+                  fontWeight={900}
+                  color={'white'}
+                  colorScheme='orange'
+                  fontSize={'1xl'}
+                  textDecoration={'none'}
+                  bgGradient={useColorModeValue(
+                    'linear(to-tr, yellow.400, orange.400)',
+                    'linear(to-r, purple.400, orange.500)'
+                  )}
+                  href={
+                    'https://bscscan.com/token/0xbe8183612f145986a41ad8e8fcfefed1c2f9deba?a=0xcb326b9f02660a4b52e8863cd40a3806af009e20'
+                  }
+                  _hover={{
+                    textDecoration: 'none',
+                  }}>
+                  Check Out Charity Wallet
+                </Button>
+              </Center>
+            </Card>
+            <Card
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              useIcon={true}
+              name='Reflective'
+              desc='Every MBUD transaction sends MBUD tokens directly to each and every holder, providing passive income and incentivizing holding.'
+              icon={GiReceiveMoney}></Card>
             <Card
               variants={{
                 hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0 },
               }}
               name='Deflationary'
-              desc='For every transaction on MoonBud, a small amount is burned forever. You can see the burned wallet below.'
-              icon={GiFlamedLeaf}></Card>
-            <Card
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              name='Reflection'
-              desc="In addition to the MBUD burned, there's another small amount being split up even and reflected to every Holder."
-              icon={GiReceiveMoney}></Card>
+              useIcon={true}
+              desc='Every MBUD transaction results in tokens being permanently burned, decreasing the total supply and increasing the value of each MBUD token.'
+              icon={GiFlamedLeaf}>
+              <Center w='full'>
+                <Button
+                  mt={4}
+                  roundedBottomRight='32'
+                  roundedTopLeft='32'
+                  rounded='5'
+                  as={External}
+                  size='lg'
+                  w='full'
+                  h="10"
+                  p={2}
+                  textAlign='center'
+                  fontWeight={900}
+                  color={'white'}
+                  fontSize={'1xl'}
+                  textDecoration={'none'}
+                  bgGradient={useColorModeValue(
+                    'linear(to-tr, yellow.400, orange.400)',
+                    'linear(to-r, purple.400, orange.500)'
+                  )}
+                  href={
+                    'https://bscscan.com/token/0xbe8183612f145986a41ad8e8fcfefed1c2f9deba?a=0x000000000000000000000000000000000000dead'
+                  }
+                  _hover={{
+                    textDecoration: 'none',
+                  }}>
+                  Check Out Burn Wallet
+                </Button>
+              </Center>
+            </Card>
           </MotionFlex>
         </Flex>
       </Flex>

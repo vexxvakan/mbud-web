@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 
 import {
-  Box,
   Button,
   Center,
   Flex,
@@ -12,17 +11,16 @@ import {
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-import Card from './ui/CardHowTo';
+import Card from './ui/Card';
 
 import PancakeLogo from './icons/PancakeLogo';
-import PancakeIcon from './icons/PancakeIcon';
 import BnbIcon from './icons/Bnb';
 import { GiGlowingHands } from 'react-icons/gi';
 
-const MotionBox = motion(Box);
 const MotionFlex = motion(Flex);
 
 export default function HowTo() {
+
   const controls = useAnimation();
   const { ref, inView } = useInView();
 
@@ -38,6 +36,7 @@ export default function HowTo() {
   return (
     <div id='howto'>
       <Flex
+      id=""
         justifyContent='center'
         alignItems='center'
         px={4}
@@ -52,7 +51,7 @@ export default function HowTo() {
             align='center'
             direction='column'
             h='auto'>
-            <MotionBox
+            <motion.div
               ref={ref}
               animate={controls}
               initial='hidden'
@@ -62,6 +61,7 @@ export default function HowTo() {
                 hidden: { x: -200, opacity: 0 },
               }}>
               <Heading
+              mb={20}
                 color={useColorModeValue('white', 'offwhite.1')}
                 textAlign='center'
                 fontWeight={400}
@@ -70,28 +70,7 @@ export default function HowTo() {
                 maxW={{ base: 'sm', lg: '7xl' }}>
                 How to buy
               </Heading>
-            </MotionBox>
-            <MotionBox
-              mb={{ base: 0, lg: 12 }}
-              ref={ref}
-              animate={controls}
-              initial='hidden'
-              transition={{ delay: 0.4, duration: 0.5 }}
-              variants={{
-                visible: { x: 30, opacity: 1 },
-                hidden: { x: 100, opacity: 0 },
-              }}>
-              <Heading
-                textAlign='center'
-                fontWeight={400}
-                color={useColorModeValue('gray.900', 'gray.500')}
-                mt={{ base: '1', lg: '0' }}
-                fontSize={{ base: '2xl', lg: '30' }}
-                lineHeight={'90%'}
-                maxW={{ base: 'sm', lg: 'xl' }}>
-                and help the dogs
-              </Heading>
-            </MotionBox>
+            </motion.div>
           </Flex>
           <MotionFlex
             mb={{ base: 0, lg: 20 }}
@@ -115,21 +94,23 @@ export default function HowTo() {
                 visible: { opacity: 1, y: 0 },
               }}
               name='Get BNB'
-              desc="Deposit BNB in your wallet of choice. We recommend the usage of TrustWallet for it's simplicity!"
+              desc="Deposit BNB in your wallet of choice."
               icon={BnbIcon}
+              useIcon={true}
             />
             <Card
               variants={{
                 hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0 },
               }}
-              name='Use PancakeSwap'
-              desc="Navigate to PancakeSwap by clicking the button below! Don't forget to set the slippage to 6%"
-              icon={PancakeLogo}>
+              name='Swap to MBUD'
+              desc="Don’t forget to set slippage to at least 6%!"
+              icon={PancakeLogo}
+              useIcon={true}>
               <Center w='full'
               >
                 <Button
-                maxH="20"
+                maxH="10"
                   roundedBottomRight='36'
                   roundedTopLeft='36'
                   size='xl'
@@ -142,7 +123,7 @@ export default function HowTo() {
                   textDecoration={'none'}
                   bgGradient='linear(to-r, orange.500,yellow.500)'
                   href='https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0xbe8183612f145986a41ad8e8fcfefed1c2f9deba'
-                  leftIcon={<PancakeIcon />}
+                  leftIcon={<PancakeLogo />}
                   _hover={{
                     bgGradient: 'linear(to-r, orange.400,yellow.400)',
                     textDecoration: 'none',
@@ -159,7 +140,7 @@ export default function HowTo() {
               name='Diamond Hands'
               desc='Hold on to your bags and enjoy the ride. You just contributed to a better world for dogs!'
               icon={GiGlowingHands}
-              lastCard={true}
+              useIcon={true}
             />
           </MotionFlex>
         </Flex>
