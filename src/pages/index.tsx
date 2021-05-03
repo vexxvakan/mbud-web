@@ -7,11 +7,11 @@ import { Box, useColorModeValue } from '@chakra-ui/react';
 
 import Wave from 'react-wavify';
 
-import Hero from '../components/Hero';
+import Hero from '../components/sections/Hero';
 
-const Features = dynamic(() => import('../components/Features'), { loading: () => <div /> });
-const Tokenomics = dynamic(() => import('../components/Tokenomics'), { loading: () => <div /> });
-const HowTo = dynamic(() => import('../components/HowTo'), { loading: () => <div /> });
+const Features = dynamic(() => import('../components/sections/Features'), { loading: () => <div /> });
+const Tokenomics = dynamic(() => import('../components/sections/Tokenomics'), { loading: () => <div /> });
+const HowTo = dynamic(() => import('../components/sections/HowTo'), { loading: () => <div /> });
 
 const Index = () => (
   <Fragment>

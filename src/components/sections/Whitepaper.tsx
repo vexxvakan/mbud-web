@@ -13,7 +13,7 @@ import {
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-import Card from './ui/Card';
+import Card from '../ui/Card';
 import { GiHealthPotion, GiFlamedLeaf, GiReceiveMoney } from 'react-icons/gi';
 
 const MotionBox = motion(Box);
@@ -41,7 +41,7 @@ export default function Hero() {
         pt={{ base: 16, md: 32 }}
         mx='auto'
         pos='relative'
-        bg={useColorModeValue('orange.400', 'purple.900')}>
+        bg={useColorModeValue('orange.400', 'blue.900')}>
         <Flex direction='column' justifyContent='center' alignItems='center'>
           <Flex
             py={2}
@@ -67,28 +67,7 @@ export default function Hero() {
                 fontSize={{ base: '6xl', lg: '120' }}
                 lineHeight={'90%'}
                 maxW={{ base: 'sm', lg: '7xl' }}>
-                Features
-              </Heading>
-            </MotionBox>
-            <MotionBox
-              mb={{ base: 0, lg: 12 }}
-              ref={ref}
-              animate={controls}
-              initial='hidden'
-              transition={{ delay: 0.4, duration: 0.5 }}
-              variants={{
-                visible: { x: 0, opacity: 1 },
-                hidden: { x: 100, opacity: 0 },
-              }}>
-              <Heading
-                textAlign='center'
-                fontWeight={400}
-                color={useColorModeValue('gray.900', 'gray.500')}
-                mt={{ base: '1', lg: '0' }}
-                fontSize={{ base: '1xl', lg: '30' }}
-                lineHeight={'90%'}
-                maxW={{ base: 'sm', lg: 'xl' }}>
-                DO ONLY GOOD EVERY DAY
+                Whitepaper
               </Heading>
             </MotionBox>
           </Flex>

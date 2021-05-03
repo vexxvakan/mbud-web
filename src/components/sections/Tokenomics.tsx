@@ -1,26 +1,19 @@
 import React, { useEffect } from 'react';
 
 import {
-  Button,
-  Center,
   Flex,
   Heading,
-  useColorModeValue,
+  useColorModeValue
 } from '@chakra-ui/react';
 
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-import Card from './ui/Card';
-
-import PancakeLogo from './icons/PancakeLogo';
-import BnbIcon from './icons/Bnb';
-import { GiGlowingHands } from 'react-icons/gi';
+import Card from '../ui/Card';
 
 const MotionFlex = motion(Flex);
 
-export default function HowTo() {
-
+export default function Hero() {
   const controls = useAnimation();
   const { ref, inView } = useInView();
 
@@ -34,18 +27,18 @@ export default function HowTo() {
   }, [controls, inView]);
 
   return (
-    <div id='howto'>
+    <div id='tokenomics'>
       <Flex
-      id=""
         justifyContent='center'
         alignItems='center'
         px={4}
-        pt={{ base: 16, md: 24 }}
+        pt={{ base: 16, md: 32 }}
         mx='auto'
         pos='relative'
-        bg={useColorModeValue('orange.400', 'purple.900')}>
+        bg={useColorModeValue('offwhite.1', 'blue.900')}>
         <Flex direction='column' justifyContent='center' alignItems='center'>
           <Flex
+            py={2}
             w='full'
             overflow={'hidden'}
             align='center'
@@ -58,17 +51,42 @@ export default function HowTo() {
               transition={{ duration: 0.5 }}
               variants={{
                 visible: { x: 0, opacity: 1 },
-                hidden: { x: -200, opacity: 0 },
+                hidden: { x: -100, opacity: 0 },
               }}>
               <Heading
-              mb={20}
-                color={useColorModeValue('white', 'offwhite.1')}
+                mt={{base: 0, lg: 4}}
+                bgGradient={useColorModeValue(
+                  'linear(to-tr, yellow.400, orange.400)',
+                  'linear(to-r, purple.400, orange.500)'
+                )}
+                bgClip='text'
                 textAlign='center'
                 fontWeight={400}
-                fontSize={{ base: '6xl', lg: '120' }}
+                fontSize={{ base: '5xl', lg: '120' }}
                 lineHeight={'90%'}
-                maxW={{ base: 'sm', lg: '7xl' }}>
-                How to buy
+                maxW={{ base: 'sm', lg: '7xl' }}
+                px="3">
+                Tokenomics
+              </Heading>
+            </motion.div>
+            <motion.div
+              ref={ref}
+              animate={controls}
+              initial='hidden'
+              transition={{ delay: 0.4, duration: 0.5 }}
+              variants={{
+                visible: { x: 0, opacity: 1 },
+                hidden: { x: 100, opacity: 0 },
+              }}>
+              <Heading
+                textAlign='center'
+                fontWeight={400}
+                mt={{ base: 1, lg: 0 }}
+                mb={{base: 0, lg: 6}}
+                fontSize={{ base: '2xl', lg: '30' }}
+                lineHeight={'90%'}
+                maxW={{ base: 'sm', lg: 'xl' }}>
+                Transaction Fee: Where Did My 5% Go?
               </Heading>
             </motion.div>
           </Flex>
@@ -81,67 +99,42 @@ export default function HowTo() {
               visible: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.75,
+                  staggerChildren: 0.5,
                 },
               },
             }}
             initial='hidden'
             animate={controls}
-            transition={{ duration: 1 }}>
+            transition={{ duration: 0.1 }}>
             <Card
               variants={{
                 hidden: { opacity: 0, y: 50, transition: { delay: 1 } },
                 visible: { opacity: 1, y: 0 },
               }}
-              name='Get BNB'
-              desc="Deposit BNB in your wallet of choice."
-              icon={BnbIcon}
-              useIcon={true}
-            />
-            <Card
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              name='Swap to MBUD'
-              desc="Don’t forget to set slippage to at least 6%!"
-              icon={PancakeLogo}
-              useIcon={true}>
-              <Center w='full'
-              >
-                <Button
-                maxH="10"
-                  roundedBottomRight='36'
-                  roundedTopLeft='36'
-                  size='xl'
-                  w={48}
-                  p={2}
-                  textAlign='center'
-                  fontWeight={900}
-                  color={'white'}
-                  fontSize={'1xl'}
-                  textDecoration={'none'}
-                  bgGradient='linear(to-r, orange.500,yellow.500)'
-                  href='https://v1exchange.pancakeswap.finance/#/swap?outputCurrency=0xbe8183612f145986a41ad8e8fcfefed1c2f9deba'
-                  leftIcon={<PancakeLogo />}
-                  _hover={{
-                    bgGradient: 'linear(to-r, orange.400,yellow.400)',
-                    textDecoration: 'none',
-                  }}>
-                  Buy MoonBuds
-                </Button>
-                </Center>
+              name='REFLECTED'
+              desc='2% of the MBUD fee is redistributed to all MBUD holders proportional to the amount of the supply that they own.'
+              value='2%'>
+              <Heading textAlign='center'>HODL!</Heading>
             </Card>
             <Card
               variants={{
                 hidden: { opacity: 0, y: 50 },
                 visible: { opacity: 1, y: 0 },
               }}
-              name='Diamond Hands'
-              desc='Hold on to your bags and enjoy the ride. You just contributed to a better world for dogs!'
-              icon={GiGlowingHands}
-              useIcon={true}
-            />
+              name='Towards Charity'
+              desc='Another 2% of the MBUD fee is sent directly to the public charity wallet.'
+              value='2%'>
+            </Card>
+            <Card
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              name='BURNED'
+              desc='The final 1% of the MBUD transaction fee is burned forever, decreasing the total supply and increasing the value of each MBUD token.'
+              value='1%'>
+              
+            </Card>
           </MotionFlex>
         </Flex>
       </Flex>

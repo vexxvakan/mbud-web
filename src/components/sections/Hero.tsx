@@ -12,7 +12,10 @@ import {
   useColorModeValue,
   createIcon,
   useColorMode,
-  Link as External
+  Link as External,
+  Stat,
+  StatLabel,
+  StatNumber,
 } from '@chakra-ui/react';
 
 import { motion } from 'framer-motion';
@@ -20,7 +23,14 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
 const ChakraLink = chakra(Link);
 
-import PlanetBlue from '../components/icons/PlanetBlue';
+import Planet2 from '../illustrations/Planet2';
+
+import { formatEther, formatUnits } from '@ethersproject/units'
+import { useContractCall, useEtherBalance, useEthers } from '@usedapp/core'
+import { utils } from 'ethers'
+
+import mbudABI from '../../utils/abi/mbud.json'
+const mbudInterface = new utils.Interface(mbudABI);
 
 const Arrow = createIcon({
   displayName: 'Arrow',
@@ -42,8 +52,15 @@ const spring = {
   restSpeed: 0.5,
 };
 
+async function getTotalSupply() {
+  const mbudContractAddress = '0xbe8183612f145986a41ad8e8fcfefed1c2f9deba'
+  const TotalSupply = await useContractCall({ abi: mbudInterface, address: mbudContractAddress, method: 'totalSupply', args: [] });
+}
+
 export default function Hero() {
+
   const { colorMode } = useColorMode();
+  const TotalSupply = getTotalSupply();
 
   return (
     <Flex
@@ -66,12 +83,12 @@ export default function Hero() {
           pos='absolute'
           w='full'
           h='full'
-          top={{ base: '40vh', lg: '400' }}
+          top={{ base: '40vh', lg: '600' }}
           right={{ base: '20', lg: '100' }}>
           <motion.div
             animate={{ x: [0, 3, 0], y: [0, 3, 0] }}
             transition={{ duration: 3, repeat: Infinity }}>
-            {colorMode === 'dark' ? <PlanetBlue /> : ''}
+            {colorMode === 'dark' ? <Planet2 /> : ''}
           </motion.div>
         </Box>
 
@@ -181,7 +198,8 @@ export default function Hero() {
               fontWeight={400}
               fontSize={{ base: '6xl', lg: '9xl' }}
               lineHeight={'90%'}
-              maxW={{ base: '256', lg: '7xl' }}>
+              maxW={{ base: '256', lg: '7xl' }}
+              px='3'>
               HELLO FRENS
             </Heading>
           </motion.div>
@@ -314,6 +332,22 @@ export default function Hero() {
             </Text>
           </Box>
         </Stack>
+
+
+        <Flex align="center" justify="center" mt={6} direction={{ base: "column", lg: "row" }} bg='blue' w='full'>
+            <Stat mx={6} my={3}>
+              <StatLabel>Supply</StatLabel>
+              <StatNumber>{TotalSupply}</StatNumber>
+            </Stat>
+            <Stat mx={6} my={3}>
+              <StatLabel>Market Cap</StatLabel>
+              <StatNumber>4000000</StatNumber>
+            </Stat>
+            <Stat mx={6} my={3}>
+              <StatLabel>Price</StatLabel>
+              <StatNumber>$100</StatNumber>
+            </Stat>
+          </Flex>
       </Stack>
     </Flex>
   );
