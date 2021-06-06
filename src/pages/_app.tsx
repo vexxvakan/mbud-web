@@ -3,7 +3,6 @@ import { ChainId, DAppProvider } from '@usedapp/core';
 
 import { AppProps } from 'next/app';
 
-import { Layout } from '../components/layout/Layout';
 import Head from 'next/head';
 
 const config = {
@@ -26,9 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <DAppProvider config={config}>
-        <Layout>
           <Component {...pageProps} />
-        </Layout>
       </DAppProvider>
     </Chakra>
   );
