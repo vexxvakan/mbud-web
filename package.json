@@ -1,5 +1,5 @@
 {
-  "name": "moonbud-rework",
+  "name": "mbud-web",
   "version": "0.5.0",
   "scripts": {
     "dev": "next",
